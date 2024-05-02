@@ -1,0 +1,37 @@
+.InputWrapper {
+  max-width: 280px;
+  width: 80%;
+  position: relative;
+}
+
+.input {
+  border: none;
+  width: 100%;
+  padding: 10px 15px;
+  width: 100%;
+  position: relative;
+}
+
+.eyeIcone {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .input {
+    padding: 8px 12px;
+  }
+
+  .eyeIcone {
+    width: 16px;
+    height: 16px;
+  }
+}

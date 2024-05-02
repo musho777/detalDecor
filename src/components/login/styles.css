@@ -1,0 +1,18 @@
+.ImageWrapper {
+  width: 45%;
+  height: 100%;
+}
+
+.LoginWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.InfoWrapper {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
