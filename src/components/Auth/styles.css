@@ -1,0 +1,126 @@
+.ImageWrapper {
+  width: 45%;
+  height: 100%;
+}
+
+.LoginWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.InfoWrapper {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#AuthDescription {
+  margin-top: 10px;
+}
+
+.InfoWrapper>div {
+  width: 85%;
+}
+
+.AuthInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.CheckBoxInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.forogtPassword {
+  display: flex;
+  justify-content: space-between;
+}
+
+.RegistrInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#RegistrP {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #576569;
+  margin-top: 20px;
+}
+
+#RegistrP>span {
+  color: white;
+}
+
+#LoginTitle {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+}
+
+.LoginImage {
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .ImageWrapper {
+    width: 50%;
+  }
+
+  .InfoWrapper {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .LoginWrapper {
+    flex-direction: column;
+  }
+
+  .InfoWrapper {
+    justify-content: start;
+  }
+
+  .ImageWrapper {
+    width: 100%;
+    height: 200px !important;
+  }
+
+  .LoginImage {
+    height: 200px !important;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .InfoWrapper>div {
+    width: 100%;
+  }
+
+  #AuthDescription {
+    margin-top: 20px;
+  }
+
+  .InfoWrapper {
+    width: 100%;
+  }
+
+  #LoginTitle {
+    display: none;
+  }
+
+}

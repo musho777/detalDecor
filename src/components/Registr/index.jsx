@@ -1,12 +1,13 @@
 "use client"
 import Auth from '../Auth/index'
 import { useState } from 'react'
-const Login = () => {
+const Registr = () => {
   const [data, setData] = useState([
     { type: 'email', placeholder: 'Электронная почта' },
     { type: 'password', placeholder: 'Электронная почта' },
+    { type: 'password', placeholder: 'Электронная почта' },
   ])
-  return <Auth remember input={data} title="Войти в личный кабинет" />
+  return <Auth input={data} title="Регистрация" />
 }
 
-export default Login
+export default Registr

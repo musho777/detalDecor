@@ -1,8 +1,13 @@
-import Login from "../components/login/index"
+import Login from "../components/Login/index"
+import Registr from "../components/Registr/index"
+import Passwordrecovery from "../components/Passwordrecovery/index"
+
 export default function Home() {
   return (
     <div>
-      <Login />
+      {/* <Login /> */}
+      <Registr />
+      {/* <Passwordrecovery /> */}
     </div>
   );
 }

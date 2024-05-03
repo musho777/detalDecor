@@ -1,0 +1,21 @@
+.Button {
+  min-width: 100px;
+  background-color: #FFB800;
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+  border: none;
+  padding: 7px 10px;
+  transition: 0.5s;
+}
+
+.Button:hover {
+  background-color: #ff9d00;
+}
+
+@media only screen and (max-width: 640px) {
+  .Button {
+    font-size: 15px;
+  }
+
+}

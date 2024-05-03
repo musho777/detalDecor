@@ -10,5 +10,35 @@ export const CloseEye = () => {
       </clipPath>
     </defs>
   </svg>
+}
+
+export const ChackSvg = () => {
+  return <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="19" height="19" stroke="white" />
+  </svg>
+
+
+
+}
+
+export const CheckedSvg = () => {
+  return <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="19" height="19" fill="#576569" stroke="#949FA3" />
+    <path d="M16.6667 5L7.5 14.1667L3.33334 10" stroke="#FFB800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+}
+
+export const DiableCheckedSvg = () => {
+  return <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="19" height="19" stroke="#576569" />
+  </svg>
+
+}
+
+export const ArrowSvg = () => {
+  return <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.1665 10H15.8332" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M10 4.16669L15.8333 10L10 15.8334" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
 
 }

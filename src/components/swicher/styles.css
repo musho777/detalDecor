@@ -1,0 +1,37 @@
+.SwicherDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+
+.SwicherDiv>p {
+  border-bottom: 1px solid white;
+  width: 50%;
+  text-align: center;
+  padding-bottom: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.activeSwicherDiv {
+  border-bottom: 1px solid #FFB800 !important;
+  color: #FFB800;
+}
+
+.Swicherline {
+  width: 100%;
+  height: 1px;
+  background-color: white;
+}
+
+.Swicherline[data-percentage="0-50"] {
+  background-color: green;
+}
+
+
+@media only screen and (max-width: 1440px) {
+  .SwicherDiv>p {
+    font-size: 13px;
+  }
+}
