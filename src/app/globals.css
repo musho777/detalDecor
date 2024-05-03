@@ -25,7 +25,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(21, 24, 25);
-
+  padding: 0 50px;
 }
 
 @layer utilities {
@@ -49,6 +49,11 @@ input:focus {
   font-weight: 600;
 }
 
+.Jost500 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .Jost400 {
   font-size: 14px;
   font-weight: 400;
@@ -64,6 +69,11 @@ input:focus {
     font-size: 14px;
   }
 
+  .Jost500 {
+    font-size: 14px;
+  }
+
+
   .Jost400 {
     font-size: 12px;
   }
@@ -78,11 +88,22 @@ input:focus {
     font-size: 13px;
   }
 
+  .Jost500 {
+    font-size: 13px;
+  }
+
+
   .Jost400 {
     font-size: 10px;
   }
 
   .Jost400_16 {
     font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  body {
+    padding: 0 20px;
   }
 }

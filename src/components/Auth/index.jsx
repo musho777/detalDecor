@@ -7,8 +7,8 @@ import UIInput from '../../UI/input'
 import CheckBox from '../../UI/checkbox'
 import UIButton from '../../UI/button'
 
-const Auth = ({ description, title, input, remember, accept = true }) => {
-  return <Popup>
+const Auth = ({ open, close, description, title, input, remember, accept = true }) => {
+  return <Popup open={open} close={close}>
     <div className="LoginWrapper">
       <div className="ImageWrapper">
         <Image
