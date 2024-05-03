@@ -64,6 +64,13 @@ input:focus {
   font-weight: 400;
 }
 
+.Jost300_24 {
+  font-size: 21px;
+  font-weight: 300;
+  color: #949FA3;
+}
+
+
 @media only screen and (max-width: 1440px) {
   .Jost600 {
     font-size: 14px;
@@ -73,6 +80,9 @@ input:focus {
     font-size: 14px;
   }
 
+  .Jost300_24 {
+    font-size: 18px;
+  }
 
   .Jost400 {
     font-size: 12px;
@@ -86,6 +96,10 @@ input:focus {
 @media only screen and (max-width: 768px) {
   .Jost600 {
     font-size: 13px;
+  }
+
+  .Jost300_24 {
+    font-size: 14px;
   }
 
   .Jost500 {

@@ -26,7 +26,7 @@ const Auth = ({ open, close, description, title, input, remember, accept = true 
           <Swicher mb={20} mt={10} />
           <div className="AuthInput">
             {input.map((elm, i) => {
-              return <UIInput type={elm.type} placeholder={elm.placeholder} />
+              return <UIInput key={i} type={elm.type} placeholder={elm.placeholder} />
             })}
           </div>
           {accept && <div className="CheckBoxInfo">

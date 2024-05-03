@@ -1,0 +1,57 @@
+.CateogryList {
+  display: flex;
+  gap: calc((100% - 120px)/16);
+  margin-top: 50px;
+  /* overflow-y: hidden; */
+  width: 100%;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+  animation: scroll 20s linear infinite;
+}
+
+.CategoryListContainer {
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 640px) {
+  .CateogryList {
+    gap: 50px;
+
+  }
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+}
+
+.wrapper .carousel {
+  margin: 50px 0;
+  font-size: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  gap: calc((100% - 120px)/16);
+  width: 100%;
+}
+
+.carousel.dragging {
+  cursor: grab;
+  scroll-behavior: auto;
+}
+
+
+.carousel img:first-child {
+  margin-left: 0px;
+}
+
+.carousel {
+  display: flex;
+}
+
+@media screen and (max-width: 550px) {
+  .wrapper .carousel {
+    gap: 50px;
+  }
+}

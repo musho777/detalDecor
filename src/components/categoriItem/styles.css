@@ -1,0 +1,43 @@
+.CategoriItem {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+#CateogriTitle {
+  line-break: anywhere;
+  text-align: center;
+  transition: 0.8s;
+}
+
+.CategoriItem svg path {
+  transition: 0.8s;
+}
+
+.CategoriItem:hover #CateogriTitle {
+  color: white;
+}
+
+.CategoriItem:hover svg path {
+  fill: white;
+}
+
+@media only screen and (max-width: 640px) {
+  .CategoriItem {
+    width: 140px;
+
+  }
+
+  .CategoriItem svg {
+    width: 59px;
+    height: 58px;
+  }
+
+  #CateogriTitle {
+    line-break: normal;
+  }
+}
