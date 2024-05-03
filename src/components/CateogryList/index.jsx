@@ -58,7 +58,7 @@ function CateogryList() {
   return (
     <div className="wrapper">
       <div className="carousel" ref={carouselRef} onMouseDown={handleDragStart} onTouchStart={handleDragStart} onMouseMove={handleDragging} onTouchMove={handleDragging} onMouseUp={handleDragStop} onTouchEnd={handleDragStop}>
-        <CategoryItem title={"Гостиная1"} ref={firstImgRef} />
+        <CategoryItem title={"Гостиная10"} ref={firstImgRef} />
         <CategoryItem title={"Гостиная2"} />
         <CategoryItem title={"Гостиная3"} />
         <CategoryItem title={"Гостиная4"} />
