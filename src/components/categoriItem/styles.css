@@ -6,6 +6,9 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  background-color: #282929;
+  padding: 20px 10px;
+  border-radius: 12px;
 }
 
 #CateogriTitle {
@@ -26,15 +29,15 @@
   fill: white;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   .CategoriItem {
-    width: 140px;
-
+    padding: 20px 0px;
+    width: 100px;
   }
 
   .CategoriItem svg {
-    width: 59px;
-    height: 58px;
+    width: 49px;
+    height: 48px;
   }
 
   #CateogriTitle {
