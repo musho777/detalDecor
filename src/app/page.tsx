@@ -1,8 +1,6 @@
-import Main from '../pages/Main/index'
+import React from 'react';
+import Main from '../pages/Main/index';
+
 export default function Home() {
-  return (
-    <div>
-      <Main />
-    </div>
-  );
+  return <Main />;
 }
