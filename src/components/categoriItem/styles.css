@@ -11,6 +11,19 @@
   border-radius: 12px;
 }
 
+.CategoriItemLoading {
+  gap: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.CategoriItemLoading span {
+  width: 120px;
+  height: 125px !important;
+  border-radius: 12px;
+}
+
 #CateogriTitle {
   line-break: anywhere;
   text-align: center;
@@ -33,7 +46,12 @@
   .CategoriItem {
     padding: 15px 0px;
     width: 80px;
+  }
 
+  .CategoriItemLoading span {
+    width: 80px;
+    height: 93px !important;
+    border-radius: 12px;
   }
 
   .CategoriItem svg {

@@ -6,8 +6,19 @@
   border-radius: 15px;
 }
 
+.CaruselImageLoading span {
+  height: 350px;
+  border-radius: 15px;
+  margin: 20px 0;
+  width: 99%;
+}
+
 @media screen and (max-width: 1070px) {
   .CaruselImage {
+    max-height: 300px;
+  }
+
+  .CaruselImageLoading span {
     max-height: 300px;
   }
 }
@@ -17,10 +28,19 @@
     height: 200px;
     margin: 10px 0;
   }
+
+  .CaruselImageLoading span {
+    height: 200px;
+    margin: 10px 0;
+  }
 }
 
 @media screen and (max-width: 375px) {
   .CaruselImage {
+    height: 150px;
+  }
+
+  .CaruselImageLoading span {
     height: 150px;
   }
 }
