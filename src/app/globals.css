@@ -25,7 +25,9 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(21, 24, 25);
-  padding: 0 50px;
+  padding: 0 140px;
+  max-width: 1440px;
+  margin: auto;
 }
 
 @layer utilities {
@@ -47,21 +49,28 @@ input:focus {
 .Jost600 {
   font-size: 16px;
   font-weight: 600;
+  color: white;
+
 }
 
 .Jost500 {
   font-size: 16px;
   font-weight: 500;
+  color: white;
 }
 
 .Jost400 {
   font-size: 14px;
   font-weight: 400;
+  color: white;
+
 }
 
 .Jost400_16 {
   font-size: 16px;
   font-weight: 400;
+  color: white;
+
 }
 
 .Jost300_24 {
@@ -69,6 +78,32 @@ input:focus {
   font-weight: 300;
   color: #949FA3;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 100%;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 7px;
+  opacity: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #303030;
+}
+
+/* Show scrollbar when scrolling */
+::-webkit-scrollbar-thumb:active {
+  opacity: 1;
+}
+
+
 
 
 @media only screen and (max-width: 1440px) {
@@ -93,7 +128,26 @@ input:focus {
   }
 }
 
+@media only screen and (max-width: 1140px) {
+
+  body {
+    padding: 0 70px;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+
+  body {
+    padding: 0 50px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
+
+  body {
+    padding: 0 50px;
+  }
+
   .Jost600 {
     font-size: 13px;
   }

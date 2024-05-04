@@ -10,7 +10,7 @@ import { useState } from 'react'
 const Header = () => {
   const [ShowLogin, setShowLogin] = useState(false)
   return <div className='header'>
-    {ShowLogin && <Login open={ShowLogin} close={() => setShowLogin(false)} />}
+    <Login open={ShowLogin} close={() => setShowLogin(false)} />
     <div className='IconeSvg'>
       <Image
         src={logo}
