@@ -6,8 +6,8 @@ import './styles.css';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
-const CateogryList = ({ children }) => {
-  const [loading, setLoading] = useState(false)
+
+const CateogryList = ({ data, loading }) => {
   let [item, setItem] = useState([])
   const responsive = {
     0: { items: 2 },
@@ -18,18 +18,22 @@ const CateogryList = ({ children }) => {
     1440: { items: 8 },
   };
 
+
   useEffect(() => {
     let temp = [...item]
     if (loading) {
       temp = Array.from({ length: 17 }, (_, index) => (
-        <CategoryItem key={index} title={`Кухня ${index + 1}`} />
+        <CategoryItem loading={true} key={index} title={`Кухня`} />
       ));
       setItem(temp)
     }
     else {
-      temp = Array.from({ length: 8 }, (_, index) => (
-        <CategoryItem loading key={index} title={`${index + 1}`} />
-      ));
+      temp = []
+      data.map((elm, index) => {
+        temp.push(
+          <CategoryItem key={index} title={`Кухня ${elm.name}`} />
+        )
+      })
       setItem(temp)
     }
   }, [loading])

@@ -1,8 +1,31 @@
 const initialState = {
-    // Define your initial state here
+    loading: true,
+    data: [],
+    error: ""
 };
 const GetCategoryReducer = (state = initialState, action) => {
-    return { a: 25 }
-    // Implement your reducer logic here
+    let temp = { ...state }
+    switch (action.type) {
+        case 'StartGetCategory':
+            temp.data = []
+            temp.loading = true
+            temp.error = ""
+            break;
+        case 'SuccessGetCategory':
+            temp.data = action.data
+            temp.error = ""
+            temp.loading = false
+            break;
+        case 'ErrorGetCategory':
+            temp.data = []
+            temp.error = action.error
+            temp.loading = false
+            break;
+        default:
+            return temp;
+    }
+    return temp;
+
+
 };
 export default GetCategoryReducer;

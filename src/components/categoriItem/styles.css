@@ -1,6 +1,7 @@
 .CategoriItem {
   width: 120px;
   display: flex;
+  height: 150px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -25,9 +26,10 @@
 }
 
 #CateogriTitle {
-  line-break: anywhere;
+  /* line-break: anywhere; */
   text-align: center;
   transition: 0.8s;
+  height: 45px;
 }
 
 .CategoriItem svg path {
@@ -45,12 +47,17 @@
 @media only screen and (max-width: 768px) {
   .CategoriItem {
     padding: 15px 0px;
-    width: 80px;
+    width: 100px;
+    height: 110px;
+  }
+
+  #CateogriTitle {
+    height: 30px;
   }
 
   .CategoriItemLoading span {
-    width: 80px;
-    height: 93px !important;
+    width: 100px;
+    height: 110px !important;
     border-radius: 12px;
   }
 
