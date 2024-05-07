@@ -125,3 +125,12 @@ export const BadRoomSvg = () => {
   </svg>
 
 }
+
+export const AddBasket = () => {
+  return <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.5 0.666656L1 3.99999V15.6667C1 16.1087 1.17559 16.5326 1.48816 16.8452C1.80072 17.1577 2.22464 17.3333 2.66667 17.3333H14.3333C14.7754 17.3333 15.1993 17.1577 15.5118 16.8452C15.8244 16.5326 16 16.1087 16 15.6667V3.99999L13.5 0.666656H3.5Z" stroke="#FFB800" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M1 4.00003H16" stroke="#FFB800" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M11.8334 7.33334C11.8334 8.2174 11.4822 9.06524 10.8571 9.69037C10.232 10.3155 9.38414 10.6667 8.50008 10.6667C7.61603 10.6667 6.76818 10.3155 6.14306 9.69037C5.51794 9.06524 5.16675 8.2174 5.16675 7.33334" stroke="#FFB800" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
+}

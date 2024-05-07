@@ -5,6 +5,8 @@ import Carusel from '../components/Carusel'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { GetCategory } from '../services/action/action'
+import CardWrapper from '../components/CardWrapper'
+// import 
 const Main = () => {
   const category = useSelector((st) => st.category)
   const dispatch = useDispatch()
@@ -16,6 +18,7 @@ const Main = () => {
     <div className='CateogrySlider'>
       <CateogryList data={category.data} loading={category.loading} />
       <Carusel />
+      <CardWrapper />
     </div>
   </div>
 }

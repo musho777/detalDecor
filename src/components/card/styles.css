@@ -1,0 +1,116 @@
+.Card {
+  width: 24%;
+  height: 320px;
+  padding: 10px;
+  background-color: #EFEFEF;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  position: relative;
+  max-width: 300px;
+  z-index: 2;
+}
+
+.CardLoadingWrapper {
+  width: 24%;
+  height: 320px;
+  padding: 10px;
+  background-color: #EFEFEF;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  position: relative;
+  max-width: 300px;
+}
+
+.CardLoading span {
+  width: 100%;
+  height: 295px;
+  border-radius: 15px;
+}
+
+.CardImg {
+  width: 100%;
+  height: 100%;
+}
+
+.CardInfo {
+  position: absolute;
+  bottom: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.45);
+  width: calc(100% - 20px);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.CardInfoOpacity {
+  height: 0;
+  opacity: 0;
+  transition: height 1s, opacity 1s;
+  overflow: hidden;
+}
+
+.CardInfoOpacityDiv {
+  margin: 10px 0;
+}
+
+.Card:hover .CardInfoOpacity {
+  display: block;
+  height: 100px;
+  opacity: 1;
+}
+
+.CardAddBasket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CardInfoOpacityDiv>p {
+  margin: 5px 0;
+}
+
+@media only screen and (max-width: 1220px) {
+  .Card {
+    width: 30%;
+  }
+
+  .CardLoadingWrapper {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 876px) {
+  .Card {
+    width: 32%;
+  }
+
+  .CardLoadingWrapper {
+    width: 32%;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .Card {
+    width: 45%;
+  }
+
+  .CardLoadingWrapper {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .Card {
+    width: 47.5%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .Card {
+    width: 100%;
+  }
+
+  .CardLoadingWrapper {
+    width: 100%;
+  }
+}
