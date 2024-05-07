@@ -2,11 +2,17 @@ import axios from "axios"
 import { SuccessGetCategory } from './successAction'
 import { ErrorGetCategory } from './errorAction'
 import { StartGetCategory } from './startAction'
+const appHostname = "https://detaldecor.digiluys.com/api"
 
 export const GetCategory = () => {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Accept-Language': 'ru'
+  };
+
   return (dispatch) => {
     dispatch(StartGetCategory())
-    axios.get(`${process.env.NEXT_PUBLIC_APP_HOSTNAME}/get_category`).then((data) => {
+    axios.get(`${appHostname}/get_category`, { headers }).then((data) => {
       if (data.data.status) {
         dispatch(SuccessGetCategory(data.data.data))
       }

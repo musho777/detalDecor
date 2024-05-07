@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 21, 24, 25;
+  --background-end-rgb: 30, 30, 30;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 30, 30, 30;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(21, 24, 25);
+  padding: 0 140px;
+  max-width: 1440px;
+  margin: auto;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::placeholder {
+  color: #8A8080;
+  font-weight: 200;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.Jost600 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+
+}
+
+.Jost500 {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+.Jost400 {
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+
+}
+
+.Jost400_16 {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+
+}
+
+.Jost300_24 {
+  font-size: 21px;
+  font-weight: 300;
+  color: #949FA3;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 100%;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 7px;
+  opacity: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #303030;
+}
+
+/* Show scrollbar when scrolling */
+::-webkit-scrollbar-thumb:active {
+  opacity: 1;
+}
+
+
+
+
+@media only screen and (max-width: 1440px) {
+  .Jost600 {
+    font-size: 14px;
+  }
+
+  .Jost500 {
+    font-size: 14px;
+  }
+
+  .Jost300_24 {
+    font-size: 18px;
+  }
+
+  .Jost400 {
+    font-size: 12px;
+  }
+
+  .Jost400_16 {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+
+  body {
+    padding: 0 70px;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+
+  body {
+    padding: 0 50px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  body {
+    padding: 0 50px;
+  }
+
+  .Jost600 {
+    font-size: 13px;
+  }
+
+  .Jost300_24 {
+    font-size: 14px;
+  }
+
+  .Jost500 {
+    font-size: 13px;
+  }
+
+
+  .Jost400 {
+    font-size: 10px;
+  }
+
+  .Jost400_16 {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  body {
+    padding: 0 20px;
+  }
+}

@@ -31,7 +31,7 @@ const CateogryList = ({ data, loading }) => {
       temp = []
       data.map((elm, index) => {
         temp.push(
-          <CategoryItem key={index} title={`Кухня ${elm.name}`} />
+          <CategoryItem img={elm.icon} key={index} title={`${elm.name}`} />
         )
       })
       setItem(temp)
