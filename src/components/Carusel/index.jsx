@@ -2,25 +2,16 @@
 "use client"
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import Image from 'next/image'
 import './styles.css'
 import { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const Carusel = () => {
+const Carusel = ({ loading, data }) => {
 
-  const [loading, setLoading] = useState(true)
   const [item, setItem] = useState([])
 
-  const handleDragStart = (e) => {
-    e.preventDefault()
-  }
-
-  const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0
-  });
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,32 +32,17 @@ const Carusel = () => {
   }, []);
 
   useEffect(() => {
-    let temp = [...item]
+    let temp = []
     if (!loading) {
-      temp = [
-        <img
-          key={0}
+      data.map((elm, i) => {
+        temp.push(<img
+          key={i}
           className='CaruselImage'
-          src={`https://wallpapercave.com/wp/wp4566576.jpg`}
+          src={`https://detaldecor.digiluys.com/${elm.photo}`}
           alt='#'
-          onDragStart={handleDragStart}
-        />,
-        <img
-          key={1}
-          className='CaruselImage'
-          src={`https://sofia-decor.ru/upload/iblock/6d6/6d6cd199a9cd5f9d4b39df370bf45629.png`}
-          alt='#'
-          onDragStart={handleDragStart}
-
-        />,
-        <img
-          key={1}
-          className='CaruselImage'
-          src={`https://sofia-decor.ru/upload/iblock/6d6/6d6cd199a9cd5f9d4b39df370bf45629.png`}
-          alt='#'
-          onDragStart={handleDragStart}
-        />,
-      ]
+          onDragStart={(e) => e.preventDefault()}
+        />)
+      })
     }
     else {
       temp = [

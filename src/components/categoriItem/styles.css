@@ -39,7 +39,7 @@
 }
 
 #CateogriTitle {
-  /* line-break: anywhere; */
+  line-break: anywhere;
   text-align: center;
   transition: 0.8s;
   height: 40px;

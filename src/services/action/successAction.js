@@ -11,3 +11,10 @@ export const SuccessGetTopProducts = (data) => {
     data
   }
 }
+
+export const SuccessGetBanner = (data) => {
+  return {
+    type: 'SuccessGetBanner',
+    data
+  }
+}

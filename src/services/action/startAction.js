@@ -8,3 +8,9 @@ export const StartGetTopProduct = () => {
     type: "StartGetTopProduct"
   }
 }
+
+export const StartGetBanner = () => {
+  return {
+    type: 'StartGetBanner'
+  }
+}

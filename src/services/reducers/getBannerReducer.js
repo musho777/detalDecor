@@ -3,20 +3,20 @@ const initialState = {
   data: [],
   error: ""
 };
-const GetTopProductReducer = (state = initialState, action) => {
+const GetBannerReducer = (state = initialState, action) => {
   let temp = { ...state }
   switch (action.type) {
-    case 'StartGetTopProduct':
+    case 'StartGetBanner':
       temp.data = []
       temp.loading = true
       temp.error = ""
       break;
-    case 'SuccessGetTopProducts':
+    case 'SuccessGetBanner':
       temp.data = action.data
       temp.error = ""
       temp.loading = false
       break;
-    case 'ErrorGetTopProcut':
+    case 'ErrorGetBanner':
       temp.data = []
       temp.error = action.error
       temp.loading = false
@@ -28,4 +28,4 @@ const GetTopProductReducer = (state = initialState, action) => {
 
 
 };
-export default GetTopProductReducer;
+export default GetBannerReducer;

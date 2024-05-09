@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SuccessGetCategory, SuccessGetTopProducts } from './successAction'
-import { ErrorGetCategory, ErrorGetTopProcut } from './errorAction'
-import { StartGetCategory, StartGetTopProduct } from './startAction'
+import { SuccessGetBanner, SuccessGetCategory, SuccessGetTopProducts } from './successAction'
+import { ErrorGetBanner, ErrorGetCategory, ErrorGetTopProcut } from './errorAction'
+import { StartGetBanner, StartGetCategory, StartGetTopProduct } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 
 export const GetCategory = () => {
@@ -45,6 +45,27 @@ export const GetTopProduct = () => {
 
     }).catch((error) => {
       dispatch(ErrorGetTopProcut("server errror"))
+    })
+  }
+}
+export const GetBanner = () => {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Accept-Language': 'ru'
+  };
+
+  return (dispatch) => {
+    dispatch(StartGetBanner())
+    axios.get(`${appHostname}/get_banners`, { headers }).then((data) => {
+      if (data.data.status) {
+        dispatch(SuccessGetBanner(data.data.data))
+      }
+      else {
+        dispatch(ErrorGetBanner("server errror"))
+      }
+
+    }).catch((error) => {
+      dispatch(ErrorGetBanner("server errror"))
     })
   }
 }

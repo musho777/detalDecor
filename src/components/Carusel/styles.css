@@ -4,6 +4,7 @@
   margin: 20px 0;
   object-fit: cover;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .CaruselImageLoading span {

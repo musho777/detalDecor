@@ -1,7 +1,12 @@
 import './styles.css'
 import Card from '../card'
+import { useEffect, useState } from 'react'
 const CardWrapper = ({ data, loading }) => {
-  if (loading) {
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    setShow(true)
+  }, [])
+  if (loading && show) {
     return <div className='CardWrapper'>
       <Card loading />
       <Card loading />
@@ -11,7 +16,6 @@ const CardWrapper = ({ data, loading }) => {
   }
   return <div className='CardWrapper'>
     {data.map((elm, i) => {
-      console.log(elm)
       return <Card
         fields={elm.fields}
         index={i}

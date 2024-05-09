@@ -10,3 +10,10 @@ export const ErrorGetTopProcut = (error) => {
     error
   }
 }
+
+export const ErrorGetBanner = (error) => {
+  return {
+    type: 'ErrorGetBanner',
+    error
+  }
+}
