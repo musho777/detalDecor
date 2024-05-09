@@ -1,10 +1,29 @@
 import './styles.css'
-import img from '../../assets/image/img.png'
-import Image from 'next/image'
 import Skeleton from 'react-loading-skeleton'
 import { AddBasket } from '../../assets/Svg'
+import AliceCarousel from 'react-alice-carousel'
+import { useEffect, useState } from 'react'
 
-const Card = ({ loading }) => {
+
+const Card = ({ fields, loading, data, index }) => {
+  const handleDragStart = (e) => {
+    e.preventDefault()
+  }
+  const [temp, setTemp] = useState([])
+  useEffect(() => {
+    let item = []
+    data?.photo.map((elm, i) => {
+      item.push(<img
+        key={i}
+        className='CardImg'
+        src={`https://detaldecor.digiluys.com/${elm.photo}`}
+        alt='#'
+        onDragStart={handleDragStart}
+      />)
+    })
+    setTemp(item)
+  }, [data])
+
   if (loading) {
     return <div className='CardLoadingWrapper'>
       <div className='CardLoading'>
@@ -13,23 +32,36 @@ const Card = ({ loading }) => {
     </div>
   }
   return <div className='Card'>
-    <Image
-      src={img}
-      alt='#'
-      className='CardImg'
-    />
+    <div className='cardCarusel'>
+      <AliceCarousel
+        disableButtonsControls={true}
+        mouseTracking={true}
+        items={temp}
+        autoPlay={true}
+        infinite={true}
+        autoPlayInterval={5000 + (index * 250)}
+        touchMoveDefaultEvents
+        touchTracking={true}
+        disableDotsControls
+      />
+    </div>
     <div className='CardInfo'>
       <div>
-        <p className='Jost500_18'>Кухня «Деревенская»</p>
+        <p className='Jost500_18'>{data.name}</p>
       </div>
       <div className='CardInfoOpacity'>
         <div className='CardInfoOpacityDiv'>
-          <p className='Jost400'>Корпус: ДСП, эмаль</p>
-          <p className='Jost400'>Столешница: Egger</p>
-          <p className='Jost400'>Длина: 6 м</p>
+          {fields.map((elm, i) => {
+            if (i < 3) {
+              return <div key={i}>
+                <span className='Jost500'>{elm.field_name.label_am}:</span>
+                <p className='Jost400'> {elm.value_am} </p>
+              </div>
+            }
+          })}
         </div>
         <div className='CardAddBasket'>
-          <p className='Jost500_18' style={{ color: "#FFB800" }}>1,350,000 руб.</p>
+          <p className='Jost500_18' style={{ color: "#FFB800" }}>{data.price} руб.</p>
           <AddBasket />
         </div>
       </div>

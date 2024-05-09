@@ -4,3 +4,10 @@ export const SuccessGetCategory = (data) => {
     data
   }
 }
+
+export const SuccessGetTopProducts = (data) => {
+  return {
+    type: "SuccessGetTopProducts",
+    data
+  }
+}

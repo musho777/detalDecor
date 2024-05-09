@@ -4,3 +4,9 @@ export const ErrorGetCategory = (error) => {
     error
   }
 }
+export const ErrorGetTopProcut = (error) => {
+  return {
+    type: "ErrorGetTopProcuts",
+    error
+  }
+}

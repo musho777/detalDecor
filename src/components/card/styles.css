@@ -10,6 +10,16 @@
   z-index: 2;
 }
 
+.cardCarusel {
+  width: 100%;
+  height: 100% !important;
+}
+
+.cardCarusel div {
+  width: 100%;
+  height: 100% !important;
+}
+
 .CardLoadingWrapper {
   width: 24%;
   height: 320px;
@@ -27,9 +37,16 @@
   border-radius: 15px;
 }
 
+.CardInfoOpacityDiv>div {
+  display: flex;
+  align-items: center;
+}
+
 .CardImg {
   width: 100%;
   height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
 .CardInfo {
@@ -45,7 +62,7 @@
 .CardInfoOpacity {
   height: 0;
   opacity: 0;
-  transition: height 1s, opacity 1s;
+  transition: height 0.7s, opacity 0.7s;
   overflow: hidden;
 }
 

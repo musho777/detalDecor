@@ -3,3 +3,8 @@ export const StartGetCategory = () => {
     type: "StartGetCategory"
   }
 }
+export const StartGetTopProduct = () => {
+  return {
+    type: "StartGetTopProduct"
+  }
+}
