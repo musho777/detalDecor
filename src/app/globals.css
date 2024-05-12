@@ -53,8 +53,20 @@ input:focus {
 
 }
 
+.Jost600_28 {
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+}
+
 .Jost500 {
   font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+.Jost500_14 {
+  font-size: 14px;
   font-weight: 500;
   color: white;
 }
@@ -117,6 +129,11 @@ input:focus {
     font-size: 14px;
   }
 
+
+  .Jost600_28 {
+    font-size: 25px;
+  }
+
   .Jost500 {
     font-size: 14px;
   }
@@ -126,6 +143,10 @@ input:focus {
   }
 
   .Jost400 {
+    font-size: 12px;
+  }
+
+  .Jost500_14 {
     font-size: 12px;
   }
 
@@ -154,6 +175,10 @@ input:focus {
     padding: 0 50px;
   }
 
+  .Jost600_28 {
+    font-size: 22px;
+  }
+
   .Jost600 {
     font-size: 13px;
   }
@@ -174,10 +199,18 @@ input:focus {
   .Jost400_16 {
     font-size: 13px;
   }
+
+  .Jost500_14 {
+    font-size: 10px;
+  }
 }
 
 @media only screen and (max-width: 425px) {
   body {
     padding: 0 20px;
+  }
+
+  .Jost600_28 {
+    font-size: 18px;
   }
 }

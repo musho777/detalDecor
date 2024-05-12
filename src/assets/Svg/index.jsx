@@ -134,3 +134,29 @@ export const AddBasket = () => {
   </svg>
 
 }
+
+
+export const StarSvg = () => {
+  return <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2.5L15.09 8.76L22 9.77L17 14.64L18.18 21.52L12 18.27L5.82 21.52L7 14.64L2 9.77L8.91 8.76L12 2.5Z" fill="#FFB800" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
+}
+
+export const EyeSvg = () => {
+  return <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 12.5C1 12.5 5 4.5 12 4.5C19 4.5 23 12.5 23 12.5C23 12.5 19 20.5 12 20.5C5 20.5 1 12.5 1 12.5Z" stroke="#FFB800" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M12 15.5C13.6569 15.5 15 14.1569 15 12.5C15 10.8431 13.6569 9.5 12 9.5C10.3431 9.5 9 10.8431 9 12.5C9 14.1569 10.3431 15.5 12 15.5Z" fill="#FFB800" stroke="#FFB800" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
+}
+
+
+export const BasketIcone = () => {
+  return <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 1L1 3.6V12.7C1 13.0448 1.14048 13.3754 1.39052 13.6192C1.64057 13.863 1.97971 14 2.33333 14H11.6667C12.0203 14 12.3594 13.863 12.6095 13.6192C12.8595 13.3754 13 13.0448 13 12.7V3.6L11 1H3Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M1 3.60004H13" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M9.66683 6.20001C9.66683 6.88958 9.38588 7.5509 8.88578 8.03849C8.38568 8.52608 7.70741 8.80001 7.00016 8.80001C6.29292 8.80001 5.61464 8.52608 5.11454 8.03849C4.61445 7.5509 4.3335 6.88958 4.3335 6.20001" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
+}

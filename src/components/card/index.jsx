@@ -47,11 +47,11 @@ const Card = ({ fields, loading, data, index }) => {
     </div>
     <div className='CardInfo'>
       <div>
-        <p className='Jost500_18'>{data.name}</p>
+        <p className='Jost500_18'>{data?.name}</p>
       </div>
       <div className='CardInfoOpacity'>
         <div className='CardInfoOpacityDiv'>
-          {fields.map((elm, i) => {
+          {fields?.map((elm, i) => {
             if (i < 3) {
               return <div key={i}>
                 <span className='Jost500'>{elm.field_name.label_am}:</span>
@@ -61,7 +61,7 @@ const Card = ({ fields, loading, data, index }) => {
           })}
         </div>
         <div className='CardAddBasket'>
-          <p className='Jost500_18' style={{ color: "#FFB800" }}>{data.price} руб.</p>
+          <p className='Jost500_18' style={{ color: "#FFB800" }}>{data?.price} руб.</p>
           <AddBasket />
         </div>
       </div>

@@ -3,7 +3,7 @@ import Header from '../components/header/index'
 import CateogryList from '../components/CateogryList'
 import Carusel from '../components/Carusel'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { GetBanner, GetCategory, GetTopProduct } from '../services/action/action'
 import CardWrapper from '../components/CardWrapper'
 
