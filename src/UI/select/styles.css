@@ -1,0 +1,63 @@
+.select {
+  width: 100%;
+  padding: 10px 15px;
+  width: 100%;
+  position: relative;
+  z-index: 999;
+  background: white;
+  border: 1px solid white;
+}
+
+.seectHeader p {
+  color: #8a8080;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.downSvgDiv {
+  position: absolute;
+  right: 15px;
+}
+
+#selectError {
+  border: 1px solid red;
+}
+
+.seectHeader {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sleectOptionItem {
+  display: flex;
+  cursor: pointer;
+}
+
+.sleectOptionItem:hover {
+  background-color: #dddddd;
+}
+
+.sleectOption {
+  height: 0;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  left: 0;
+  overflow-y: auto;
+  transition: 0.7s;
+}
+
+.sleectOption>div {
+  padding: 10px;
+}
+
+#activeSelect {
+  height: 91px !important;
+}
+
+.sleectOptionItem {
+  padding: 10px 2px;
+}

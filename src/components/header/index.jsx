@@ -1,16 +1,24 @@
 "use client"
 import Image from 'next/image'
 import Login from "../Login/index.jsx"
+import Registr from '../Registr/index.jsx'
 import './style.css'
 import logo from '../../assets/image/logo.png'
 import { BasketSvg, FilterSvg, HeartSvg, MenuMobileSvg, MenuSvg } from '@/assets/Svg'
 import Search from './search'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Header = () => {
   const [ShowLogin, setShowLogin] = useState(false)
+  const [modal, setModal] = useState("reg")
+
   return <div className='header'>
-    <Login open={ShowLogin} close={() => setShowLogin(false)} />
+    {modal == "login" &&
+      <Login changeModal={() => setModal("reg")} open={ShowLogin} close={() => setShowLogin(false)} />
+    }
+    {modal == "reg" &&
+      <Registr changeModal={() => setModal("login")} open={ShowLogin} close={() => setShowLogin(false)} />
+    }
     <div className='IconeSvg'>
       <Image
         src={logo}

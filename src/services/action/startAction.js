@@ -14,3 +14,9 @@ export const StartGetBanner = () => {
     type: 'StartGetBanner'
   }
 }
+
+export const StartGetCountry = () => {
+  return {
+    type: 'StartGetCountry'
+  }
+}

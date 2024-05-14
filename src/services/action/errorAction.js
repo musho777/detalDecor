@@ -17,3 +17,10 @@ export const ErrorGetBanner = (error) => {
     error
   }
 }
+
+export const ErrorGetCountry = (error) => {
+  return {
+    type: 'ErrorGetCountry',
+    error
+  }
+}

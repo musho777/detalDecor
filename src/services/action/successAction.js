@@ -18,3 +18,10 @@ export const SuccessGetBanner = (data) => {
     data
   }
 }
+
+export const SuccessGetCountry = (data) => {
+  return {
+    type: 'SuccessGetCountry',
+    data
+  }
+}

@@ -11,6 +11,21 @@ export const CloseEye = () => {
     </defs>
   </svg>
 }
+export const OpenEye = () => {
+  return <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_62_2064)">
+      <path d="M0.833008 10C0.833008 10 4.16634 3.33334 9.99967 3.33334C15.833 3.33334 19.1663 10 19.1663 10C19.1663 10 15.833 16.6667 9.99967 16.6667C4.16634 16.6667 0.833008 10 0.833008 10Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_62_2064">
+        <rect width="20" height="20" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+
+}
+
 
 export const ChackSvg = () => {
   return <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -159,4 +174,10 @@ export const BasketIcone = () => {
     <path d="M9.66683 6.20001C9.66683 6.88958 9.38588 7.5509 8.88578 8.03849C8.38568 8.52608 7.70741 8.80001 7.00016 8.80001C6.29292 8.80001 5.61464 8.52608 5.11454 8.03849C4.61445 7.5509 4.3335 6.88958 4.3335 6.20001" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
   </svg>
 
+}
+
+export const DownSvg = () => {
+  return <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#000000" height="12px" width="12px" version="1.1" id="Layer_1" viewBox="0 0 330 330" xmlSpace="preserve">
+    <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393  c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393  s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" />
+  </svg>
 }

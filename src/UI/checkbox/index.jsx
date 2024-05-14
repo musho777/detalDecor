@@ -1,8 +1,11 @@
 import { ChackSvg, CheckedSvg, DiableCheckedSvg } from '@/assets/Svg'
 import './styles.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 const CheckBox = ({ checked, text, disable }) => {
-  const [isChecked, setIsChecked] = useState(checked)
+  const [isChecked, setIsChecked] = useState()
+  useEffect(() => {
+    setIsChecked(!checked)
+  }, [checked])
 
   return <div className='CheckBox'>
     {!disable ? <div onClick={() => setIsChecked(!isChecked)}>
