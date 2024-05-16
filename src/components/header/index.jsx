@@ -2,22 +2,28 @@
 import Image from 'next/image'
 import Login from "../Login/index.jsx"
 import Registr from '../Registr/index.jsx'
+import MailVereficastion from '../MailVerefication'
+
 import './style.css'
 import logo from '../../assets/image/logo.png'
 import { BasketSvg, FilterSvg, HeartSvg, MenuMobileSvg, MenuSvg } from '@/assets/Svg'
 import Search from './search'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const Header = () => {
   const [ShowLogin, setShowLogin] = useState(false)
   const [modal, setModal] = useState("reg")
+  const [email, setEmail] = useState("")
 
   return <div className='header'>
     {modal == "login" &&
       <Login changeModal={() => setModal("reg")} open={ShowLogin} close={() => setShowLogin(false)} />
     }
     {modal == "reg" &&
-      <Registr changeModal={() => setModal("login")} open={ShowLogin} close={() => setShowLogin(false)} />
+      <Registr setEmail={(e) => setEmail(e)} changeModal={(e) => setModal(e)} open={ShowLogin} close={() => setShowLogin(false)} />
+    }
+    {modal == "mailverefication" &&
+      <MailVereficastion email={email} open={ShowLogin} />
     }
     <div className='IconeSvg'>
       <Image

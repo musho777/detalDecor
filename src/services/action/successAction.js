@@ -25,3 +25,17 @@ export const SuccessGetCountry = (data) => {
     data
   }
 }
+
+export const SuccessRegistr = (data) => {
+  return {
+    type: 'SuccessRegistr',
+    data
+  }
+}
+
+export const SuccessConfirmCode = (data) => {
+  return {
+    type: 'SuccessConfirmCode',
+    data
+  }
+}

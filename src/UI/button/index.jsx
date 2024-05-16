@@ -1,5 +1,14 @@
 import './styles.css'
-const UIButton = ({ title, full, onClick }) => {
-  return <button onClick={() => onClick()} style={full && { width: "100%" }} className='Button'>{title}</button>
+import MoonLoader from "react-spinners/ClipLoader";
+const UIButton = ({ title, full, onClick, loading }) => {
+  return <button disabled={loading} onClick={() => onClick()} style={full && { width: "100%" }} className='Button'>
+    {!loading ? title :
+      <MoonLoader
+        color={"white"}
+        loading={true}
+        size={15}
+      />
+    }
+  </button>
 }
 export default UIButton

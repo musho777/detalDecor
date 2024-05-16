@@ -1,0 +1,18 @@
+.mailverefication {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mailverefication>p {
+  line-height: 20px;
+}
+
+#mailvereficationSpan {
+  cursor: pointer;
+}
+
+#mailvereficationSpan>span {
+  color: #576569;
+  margin-right: 15px;
+}

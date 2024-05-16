@@ -6,7 +6,6 @@ export const Validation = (value, type) => {
     return true
   }
   else {
-    console.log("----")
     return false
   }
 }

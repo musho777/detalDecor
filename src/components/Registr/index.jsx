@@ -1,25 +1,51 @@
 "use client"
 import { useDispatch, useSelector } from 'react-redux'
 import Auth from '../Auth/index'
-import { useEffect, useState } from 'react'
-import { GetCountry, Register } from '@/services/action/action'
+import { useEffect, useRef, useState } from 'react'
+import { ClearRegistrSgtatus, GetCountry, Register } from '@/services/action/action'
 import Swicher from '../swicher'
 import UIButton from '@/UI/button'
 import UIInput from '@/UI/input'
 import UISelect from '@/UI/select'
 import { Validation } from '../../functions/validation'
-import axios from 'axios'
+import { ValidateEmail } from '../../functions/emailValidation'
+
 import InputMask from 'react-input-mask';
 
 
 
-const Registr = ({ open, close, changeModal }) => {
+const Registr = ({ open, close, changeModal, setEmail }) => {
   const country = useSelector((st) => st.country)
+  const registr = useSelector((st) => st.registr)
   const [role_id, setRole_id] = useState(2)
+  const [data, setData] = useState([])
+  const inputRef = useRef(null);
+
   const dispatch = useDispatch()
+
+
   useEffect(() => {
     dispatch(GetCountry())
+    dispatch(ClearRegistrSgtatus())
   }, [])
+
+
+
+  useEffect(() => {
+    if (Object.keys(registr.error).length) {
+      let item = [...data]
+      if (registr.error.email) {
+        item[2].error = registr.error.email[0]
+        item[2].errorText = registr.error.email[0]
+      }
+      setData(item)
+    }
+
+    if (registr.status) {
+      setEmail(data[2].value)
+      changeModal("mailverefication")
+    }
+  }, [registr])
 
 
   useEffect(() => {
@@ -36,21 +62,15 @@ const Registr = ({ open, close, changeModal }) => {
     else {
       setData([
         { input: true, type: 'string', placeholder: 'company_name', value: "", id: "company_name" },
-        { input: true, type: 'email', placeholder: 'Электронная почта', value: "", id: 'email' },
         { mask: true, type: 'string', placeholder: 'phone', value: "", id: "phone" },
+        { input: true, type: 'email', placeholder: 'Электронная почта', value: "", id: 'email' },
         { select: true, type: 'select', placeholder: 'country', value: [], id: "country" },
         { input: true, type: 'password', placeholder: 'password', value: "", id: 'password' },
         { input: true, type: 'password', placeholder: 'password_confirmation', value: "", id: "password_confirmation" },
       ])
     }
   }, [role_id])
-  const validateEmail = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
+
 
   const SendData = () => {
     let item = [...data]
@@ -78,7 +98,7 @@ const Registr = ({ open, close, changeModal }) => {
           }
         }
         if (elm.type == 'email') {
-          if (!validateEmail(elm.value)) {
+          if (!ValidateEmail(elm.value)) {
             elm.error = true
             if (elm.value?.length > 0) {
               elm.errorText = "mail is incorect"
@@ -94,7 +114,6 @@ const Registr = ({ open, close, changeModal }) => {
         }
       }
       else if (elm.select) {
-        console.log(elm)
         if (!elm.value.length) {
           elm.error = true
         }
@@ -110,7 +129,6 @@ const Registr = ({ open, close, changeModal }) => {
         send = false
       }
     })
-
     if (send) {
       dispatch(Register({
         role_id: role_id,
@@ -126,6 +144,7 @@ const Registr = ({ open, close, changeModal }) => {
     }
 
   }
+
   const changeValue = (e, i) => {
     let item = [...data]
     item[i].value = e
@@ -133,29 +152,27 @@ const Registr = ({ open, close, changeModal }) => {
   }
 
   const changeSelectValue = (e, i) => {
-    console.log(e)
     let item = [...data]
     if (!item[i].value.includes(e)) {
       item[i].value.push(e)
     }
     else {
       let index = item[i].value.findIndex(el => el.name == e.name)
-      console.log(index)
       item[i].value.splice(index, 1)
     }
     setData(item)
   }
 
 
-  const [data, setData] = useState([])
-  return <Auth data={country.data} type="reg" changeModal={changeModal} open={open} close={close} input={data} >
+
+  return <Auth open={open} close={close} >
     <div>
       <p id="LoginTitle" className="Jost600">Регистрация</p>
       <Swicher setRole_id={(e) => setRole_id(e)} mb={20} mt={10} />
       <div className="AuthInput">
         {data?.map((elm, i) => {
           if (elm.input)
-            return <UIInput errorText={elm.errorText} onChange={(e) => changeValue(e, i)} error={elm.error} key={i} type={elm.type} placeholder={elm.placeholder} />
+            return <UIInput value={elm.value} errorText={elm.errorText} onChange={(e) => changeValue(e, i)} error={elm.error} key={i} type={elm.type} placeholder={elm.placeholder} />
           if (elm.select) {
             return <div>
               <UISelect
@@ -172,8 +189,9 @@ const Registr = ({ open, close, changeModal }) => {
             </div>
           }
           if (elm.mask) {
-            return <div>
+            return <div key={i}>
               <InputMask
+                ref={inputRef}
                 className='input'
                 value={elm.value}
                 mask="+374 (99) 999-999"
@@ -186,12 +204,13 @@ const Registr = ({ open, close, changeModal }) => {
           }
         })}
       </div>
-      <UIButton onClick={() => SendData()} full title={"Войти"} />
-      <p className="Jost400" id="RegistrP">Уже зарегистрирован? <span onClick={(e) => {
-        e.stopPropagation()
-        e.preventDefault()
-        changeModal()
-      }}>Войти</span></p>
+      <UIButton loading={registr.loading} onClick={() => SendData()} full title={"Войти"} />
+      <p className="Jost400" id="RegistrP">Уже зарегистрирован?
+        <span onClick={(e) => {
+          e.stopPropagation()
+          e.preventDefault()
+          changeModal()
+        }}>Войти</span></p>
     </div>
   </Auth>
 }

@@ -24,3 +24,17 @@ export const ErrorGetCountry = (error) => {
     error
   }
 }
+
+export const ErrorRegistr = (error) => {
+  return {
+    type: 'ErrorRegistr',
+    error
+  }
+}
+
+export const ErrorConfirmCode = (error) => {
+  return {
+    type: 'ErrorConfirmCode',
+    error
+  }
+}

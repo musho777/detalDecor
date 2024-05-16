@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetTopProducts } from './successAction'
-import { ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetTopProcut } from './errorAction'
-import { StartGetBanner, StartGetCategory, StartGetCountry, StartGetTopProduct } from './startAction'
+import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetTopProducts, SuccessRegistr } from './successAction'
+import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetTopProcut, ErrorRegistr } from './errorAction'
+import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetTopProduct, StartRegistr } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 
 export const GetCategory = () => {
@@ -91,26 +91,60 @@ export const GetCountry = () => {
 }
 
 export const Register = (data) => {
-  const headers = {
-    'Content-Type': 'application/json',
-    'Accept-Language': 'ru'
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am'
+    }
   };
-
   return (dispatch) => {
-    dispatch(StartGetCountry())
-    axios.post(`${appHostname}/register`, data).then((data) => {
-      console.log(data)
+
+    dispatch(StartRegistr())
+    axios.post('https://detaldecor.digiluys.com/api/register', data, config).then((data) => {
       if (data.data.status) {
-        console.log(data)
-        // dispatch(SuccessGetCountry(data.data.data))
+        dispatch(SuccessRegistr())
       }
       else {
-        // dispatch(ErrorGetCountry("server errror"))
+        dispatch(ErrorRegistr(data.data.data))
       }
 
     }).catch((error) => {
-      console.log(error)
-      // dispatch(ErrorGetCountry("server errror"))
+      dispatch(ErrorRegistr(data.data.data))
     })
+  }
+}
+
+export const ConfirmMail = (data) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am'
+    }
+  };
+
+  return (dispatch) => {
+    dispatch(StartConfirmCode())
+    axios.post(`${appHostname}/confirm_register`, data, config).then((data) => {
+      if (data.data.status) {
+        dispatch(SuccessConfirmCode())
+      }
+      else {
+        dispatch(ErrorConfirmCode())
+      }
+    }).catch((error) => {
+      dispatch(ErrorConfirmCode(error.response.data.message))
+    })
+  }
+}
+
+
+export const ClearConfirmCode = () => {
+  return {
+    type: 'ClearConfirmCode'
+  }
+}
+export const ClearRegistrSgtatus = () => {
+  return {
+    type: 'ClearRegistrSgtatus'
   }
 }

@@ -20,3 +20,15 @@ export const StartGetCountry = () => {
     type: 'StartGetCountry'
   }
 }
+
+export const StartRegistr = () => {
+  return {
+    type: 'StartRegistr'
+  }
+}
+
+export const StartConfirmCode = () => {
+  return {
+    type: 'StartConfirmCode',
+  }
+}
