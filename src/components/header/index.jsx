@@ -12,18 +12,18 @@ import { useState } from 'react'
 
 const Header = () => {
   const [ShowLogin, setShowLogin] = useState(false)
-  const [modal, setModal] = useState("reg")
+  const [modal, setModal] = useState("login")
   const [email, setEmail] = useState("")
 
   return <div className='header'>
-    {modal == "login" &&
-      <Login changeModal={() => setModal("reg")} open={ShowLogin} close={() => setShowLogin(false)} />
+    {modal == "login" && ShowLogin &&
+      < Login changeModal={() => setModal("reg")} open={ShowLogin} close={() => setShowLogin(false)} />
     }
-    {modal == "reg" &&
+    {modal == "reg" && ShowLogin &&
       <Registr setEmail={(e) => setEmail(e)} changeModal={(e) => setModal(e)} open={ShowLogin} close={() => setShowLogin(false)} />
     }
-    {modal == "mailverefication" &&
-      <MailVereficastion email={email} open={ShowLogin} />
+    {modal == "mailverefication" && ShowLogin &&
+      <MailVereficastion email={email} changeModal={(e) => setModal(e)} open={ShowLogin} close={() => setShowLogin(false)} />
     }
     <div className='IconeSvg'>
       <Image
@@ -46,7 +46,10 @@ const Header = () => {
       </div>
     </div>
     <div>
-      <p onClick={() => setShowLogin(true)} id="headerLogin" className='Jost500'>Вход / Регистрация</p>
+      <p onClick={() => {
+        setModal("login")
+        setShowLogin(true)
+      }} id="headerLogin" className='Jost500'>Вход / Регистрация</p>
       <div className='MenuMobileHeader'><MenuMobileSvg /></div>
     </div>
   </div>

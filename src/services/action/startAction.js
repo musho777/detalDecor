@@ -32,3 +32,9 @@ export const StartConfirmCode = () => {
     type: 'StartConfirmCode',
   }
 }
+
+export const StartLogin = () => {
+  return {
+    type: 'StartLogin'
+  }
+}

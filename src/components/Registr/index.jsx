@@ -12,8 +12,6 @@ import { ValidateEmail } from '../../functions/emailValidation'
 
 import InputMask from 'react-input-mask';
 
-
-
 const Registr = ({ open, close, changeModal, setEmail }) => {
   const country = useSelector((st) => st.country)
   const registr = useSelector((st) => st.registr)

@@ -39,3 +39,10 @@ export const SuccessConfirmCode = (data) => {
     data
   }
 }
+
+export const SuccessLogin = (data) => {
+  return {
+    type: "SuccessLogin",
+    data
+  }
+}

@@ -84,6 +84,15 @@ input:focus {
 
 }
 
+.errorText {
+  height: 13px;
+  font-size: 12px;
+  font-weight: 400;
+  color: red;
+  text-align: center;
+  margin: 7px;
+}
+
 .Jost400_13 {
   font-size: 13px;
   font-weight: 400;

@@ -1,0 +1,11 @@
+.forgotPassword {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgotPasswordDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

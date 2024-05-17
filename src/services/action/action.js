@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetTopProducts, SuccessRegistr } from './successAction'
-import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetTopProcut, ErrorRegistr } from './errorAction'
-import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetTopProduct, StartRegistr } from './startAction'
+import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetTopProducts, SuccessLogin, SuccessRegistr } from './successAction'
+import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetTopProcut, ErrorLogin, ErrorRegistr } from './errorAction'
+import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetTopProduct, StartLogin, StartRegistr } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 
 export const GetCategory = () => {
@@ -126,6 +126,8 @@ export const ConfirmMail = (data) => {
     dispatch(StartConfirmCode())
     axios.post(`${appHostname}/confirm_register`, data, config).then((data) => {
       if (data.data.status) {
+        console.log(data)
+        localStorage.setItem("token", data.data.token)
         dispatch(SuccessConfirmCode())
       }
       else {
@@ -137,7 +139,6 @@ export const ConfirmMail = (data) => {
   }
 }
 
-
 export const ClearConfirmCode = () => {
   return {
     type: 'ClearConfirmCode'
@@ -146,5 +147,57 @@ export const ClearConfirmCode = () => {
 export const ClearRegistrSgtatus = () => {
   return {
     type: 'ClearRegistrSgtatus'
+  }
+}
+
+
+export const ReSendConfirmCode = (data) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': `am`
+    }
+  };
+
+  return (dispatch) => {
+    axios.post(`${appHostname}/resend_code_for_register`, data, config).then((data) => {
+      if (data.data.status) {
+        console.log(data)
+      }
+    }).catch((error) => {
+    })
+  }
+}
+
+
+export const LoginAction = (data) => {
+  console.log(data)
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am'
+    }
+  };
+
+  return (dispatch) => {
+    dispatch(StartLogin())
+    axios.post(`${appHostname}/login`, data, config).then((data) => {
+      console.log(data)
+      if (data.data.status) {
+        localStorage.setItem("token", data.data.token)
+        dispatch(SuccessLogin(data.data))
+      }
+      else {
+        dispatch(ErrorLogin())
+      }
+    }).catch((error) => {
+      dispatch(ErrorLogin("error"))
+    })
+  }
+}
+
+export const ClearLogin = () => {
+  return {
+    type: 'ClearLogin'
   }
 }

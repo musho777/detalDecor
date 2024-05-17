@@ -38,3 +38,10 @@ export const ErrorConfirmCode = (error) => {
     error
   }
 }
+
+export const ErrorLogin = (error) => {
+  return {
+    type: 'ErrorLogin',
+    error
+  }
+}

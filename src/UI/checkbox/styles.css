@@ -1,4 +1,9 @@
 .CheckBox {
   display: flex;
   gap: 15px;
+  align-items: center;
+}
+
+.CheckBox>div {
+  height: 20px;
 }
