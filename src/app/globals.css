@@ -36,6 +36,11 @@ body {
   }
 }
 
+.CardWrapperDiv>p {
+  margin: 30px 0;
+
+}
+
 ::placeholder {
   color: #8A8080;
   font-weight: 200;
@@ -87,7 +92,12 @@ input:focus {
   font-size: 14px;
   font-weight: 400;
   color: white;
+}
 
+.Jost400_32 {
+  font-size: 32px;
+  font-weight: 400;
+  color: white;
 }
 
 .errorText {
@@ -104,10 +114,18 @@ input:focus {
   font-weight: 400;
   color: black;
 
+
 }
 
 .Jost400_16 {
   font-size: 16px;
+  font-weight: 400;
+  color: white;
+
+}
+
+.Jost400_20 {
+  font-size: 20px;
   font-weight: 400;
   color: white;
 
@@ -149,6 +167,14 @@ input:focus {
 @media only screen and (max-width: 1440px) {
   .Jost600 {
     font-size: 14px;
+  }
+
+  .Jost400_32 {
+    font-size: 29px;
+  }
+
+  .Jost400_20 {
+    font-size: 18px;
   }
 
 
@@ -201,6 +227,10 @@ input:focus {
     padding: 0 50px;
   }
 
+  .Jost400_32 {
+    font-size: 26px;
+  }
+
   .Jost600_28 {
     font-size: 22px;
   }
@@ -221,6 +251,9 @@ input:focus {
     font-size: 13px;
   }
 
+  .Jost400_20 {
+    font-size: 16px;
+  }
 
   .Jost400 {
     font-size: 10px;
@@ -242,5 +275,13 @@ input:focus {
 
   .Jost600_28 {
     font-size: 18px;
+  }
+
+  .Jost400_32 {
+    font-size: 18px;
+  }
+
+  .CardWrapperDiv>p {
+    margin: 20px 0;
   }
 }

@@ -1,0 +1,95 @@
+.futter {
+  width: 100%;
+  background-color: #0E1010;
+  padding: 50px 140px;
+  max-width: 1440px;
+
+}
+
+.futterLogoWrapper {
+  display: flex;
+  gap: 150px;
+  /* flex-wrap: wrap; */
+}
+
+.FutterSvgWrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.futterLogoWrapper>div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.SocialMediaSvg {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.futter>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1140px) {
+
+  .futter {
+    padding: 30px 70px;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+
+  .futter {
+    padding: 30px 50px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .futter {
+    padding: 30px 50px;
+  }
+
+  .futterLogoWrapper {
+    gap: 70px;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+
+  .futter>div {
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .futterLogoWrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .futterLogoWrapper>div {
+    text-align: center;
+  }
+
+  .SocialMediaSvg {
+    align-items: center;
+  }
+}
+
+
+@media only screen and (max-width: 425px) {
+  .futter {
+    padding: 30px 20px;
+
+  }
+}
