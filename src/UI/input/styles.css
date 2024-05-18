@@ -24,6 +24,10 @@
   height: 20px;
 }
 
+#label {
+  margin: 10px 0;
+}
+
 .InputerrorText {
   height: 5px;
   font-size: 10px;

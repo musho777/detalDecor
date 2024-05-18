@@ -188,3 +188,7 @@ export const DownSvgWhite = () => {
     <path d="M6.40576 9L12.4058 15L18.4058 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 }
+
+export const XSvg = () => {
+  return <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 2" viewBox="0 0 100 100"><path d="M50 11a39 39 0 1 0 39 39 39.05 39.05 0 0 0-39-39Zm11.12 45.88a3 3 0 0 1 0 4.24 3 3 0 0 1-4.24 0L50 54.24l-6.88 6.88a3 3 0 0 1-4.24 0 3 3 0 0 1 0-4.24L45.76 50l-6.88-6.88a3 3 0 0 1 4.24-4.24L50 45.76l6.88-6.88a3 3 0 0 1 4.24 4.24L54.24 50Z" fill="#ff0000" class="fill-000000" /></svg>
+}

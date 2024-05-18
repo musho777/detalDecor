@@ -1,0 +1,106 @@
+.createProduct {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+#createProductTitle {
+  margin: 20px 0;
+}
+
+#createProductPhoto {
+  margin: 20px 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgb(135, 137, 138);
+  font-size: 100px;
+  border-radius: 12px;
+}
+
+.AddPhotoCreateProduct {
+  position: relative;
+}
+
+.AddPhotoCreateProduct img {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.AddPhotoCreateProduct>div {
+  position: absolute;
+  cursor: pointer;
+  right: -10px;
+  top: -10px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.AddPhotoCreateProductWrapper {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.createProductInputWrapper {
+  display: flex;
+  margin: 30px 0;
+  gap: 30px;
+  flex-wrap: wrap;
+
+}
+
+.createProductInputWrapper>div {
+  width: 40%;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .AddPhotoCreateProductWrapper {
+    justify-content: center;
+  }
+
+}
+
+@media only screen and (max-width: 640px) {
+  .createProductInputWrapper>div {
+    width: 100%;
+  }
+
+  .AddPhotoCreateProductWrapper {
+    justify-content: center;
+  }
+
+  .AddPhotoCreateProduct img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .custom-file-upload {
+    width: 130px;
+    height: 130px;
+  }
+}

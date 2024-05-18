@@ -1,22 +1,16 @@
 import './styles.css'
 import { CloseEye, OpenEye } from '../../assets/Svg/index'
-import { useEffect, useState } from 'react'
-const UIInput = ({ placeholder, type, onChange, error, errorText, value, label }) => {
-  const [padding, setPadding] = useState("15px")
+import { useState } from 'react'
+import './styles.css'
+
+const TeaxAre = ({ placeholder, type, onChange, error, errorText, value, label }) => {
   const [types, setTipes] = useState(type)
 
-  useEffect(() => {
-    if (type == "password") {
-      setPadding("40px")
-    }
-    setTipes(type)
-  }, [type])
-  return <div className='InputWrapper'>
+  return <div className='TeaxtAreaWrapper'>
     {label && <p id="label" className='Jost400'>{label}</p>}
-    <input
+    <textarea
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      style={{ paddingRight: padding }}
       placeholder={placeholder}
       type={types}
       className='input'
@@ -38,4 +32,4 @@ const UIInput = ({ placeholder, type, onChange, error, errorText, value, label }
   </div >
 }
 
-export default UIInput 
+export default TeaxAre 

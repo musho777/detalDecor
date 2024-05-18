@@ -46,7 +46,7 @@ export const ErrorLogin = (error) => {
   }
 }
 
-export const ErrorGetUser = () => {
+export const ErrorGetUser = (error) => {
   return {
     type: 'ErrorGetUser',
     error

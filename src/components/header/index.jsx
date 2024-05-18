@@ -35,7 +35,7 @@ const Header = () => {
     {modal == "mailverefication" && ShowLogin &&
       <MailVereficastion email={email} changeModal={(e) => setModal(e)} open={ShowLogin} close={() => setShowLogin(false)} />
     }
-    <div className='IconeSvg'>
+    <div onClick={() => window.location = "/"} className='IconeSvg'>
       <Image
         src={logo}
         alt="logo"

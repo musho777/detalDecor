@@ -59,6 +59,12 @@ input:focus {
   color: white;
 }
 
+.Jost600_24 {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
 .Jost500 {
   font-size: 16px;
   font-weight: 500;
@@ -150,6 +156,10 @@ input:focus {
     font-size: 25px;
   }
 
+  .Jost600_24 {
+    font-size: 21px;
+  }
+
   .Jost500 {
     font-size: 14px;
   }
@@ -193,6 +203,10 @@ input:focus {
 
   .Jost600_28 {
     font-size: 22px;
+  }
+
+  .Jost600_24 {
+    font-size: 19px;
   }
 
   .Jost600 {

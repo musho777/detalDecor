@@ -11,7 +11,7 @@ const UserReducer = (state = initialState, action) => {
       temp.status = false
       temp.loading = true
       temp.error = ""
-      temp.data = []
+      // temp.data = []
       break;
     case 'SuccessGetUser':
       temp.status = true
