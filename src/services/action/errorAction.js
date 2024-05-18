@@ -45,3 +45,10 @@ export const ErrorLogin = (error) => {
     error
   }
 }
+
+export const ErrorGetUser = () => {
+  return {
+    type: 'ErrorGetUser',
+    error
+  }
+}

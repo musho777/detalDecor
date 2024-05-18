@@ -1,8 +1,9 @@
 import axios from "axios"
-import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetTopProducts, SuccessLogin, SuccessRegistr } from './successAction'
-import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetTopProcut, ErrorLogin, ErrorRegistr } from './errorAction'
-import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetTopProduct, StartLogin, StartRegistr } from './startAction'
+import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr } from './successAction'
+import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr } from './errorAction'
+import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
+const token = localStorage.getItem('token')
 
 export const GetCategory = () => {
   const headers = {
@@ -51,7 +52,7 @@ export const GetTopProduct = () => {
 export const GetBanner = () => {
   const headers = {
     'Content-Type': 'application/json',
-    'Accept-Language': 'ru'
+    'Accept-Language': 'am'
   };
 
   return (dispatch) => {
@@ -103,6 +104,7 @@ export const Register = (data) => {
     axios.post('https://detaldecor.digiluys.com/api/register', data, config).then((data) => {
       if (data.data.status) {
         dispatch(SuccessRegistr())
+        dispatch(GetUserIfno())
       }
       else {
         dispatch(ErrorRegistr(data.data.data))
@@ -185,6 +187,7 @@ export const LoginAction = (data) => {
       console.log(data)
       if (data.data.status) {
         localStorage.setItem("token", data.data.token)
+        dispatch(GetUserIfno())
         dispatch(SuccessLogin(data.data))
       }
       else {
@@ -199,5 +202,29 @@ export const LoginAction = (data) => {
 export const ClearLogin = () => {
   return {
     type: 'ClearLogin'
+  }
+}
+
+export const GetUserIfno = () => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+
+  return (dispatch) => {
+    dispatch(StartGetuser())
+    axios.get(`${appHostname}/auth_user_info`, config).then((data) => {
+      if (data.data.status) {
+        dispatch(SuccessGetUser(data.data.user))
+      }
+      else {
+        dispatch(ErrorGetUser())
+      }
+    }).catch((error) => {
+      dispatch(ErrorGetUser())
+    })
   }
 }

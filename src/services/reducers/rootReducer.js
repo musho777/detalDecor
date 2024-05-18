@@ -6,6 +6,7 @@ import GetCountryReducer from './getCountryReducer'
 import RegistrReducer from './RegistrReducer'
 import ConfirmCodeReducer from './ConfirmCodeReducer'
 import LoginReducer from './LoginReducer'
+import UserReducer from './userReducer'
 
 
 const rootReducer = combineReducers({
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   country: GetCountryReducer,
   registr: RegistrReducer,
   confrimCode: ConfirmCodeReducer,
-  loginState: LoginReducer
+  loginState: LoginReducer,
+  user: UserReducer
 });
 
 export default rootReducer;

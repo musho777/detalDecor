@@ -46,3 +46,10 @@ export const SuccessLogin = (data) => {
     data
   }
 }
+
+export const SuccessGetUser = (data) => {
+  return {
+    type: "SuccessGetUser",
+    data
+  }
+}

@@ -38,3 +38,9 @@ export const StartLogin = () => {
     type: 'StartLogin'
   }
 }
+
+export const StartGetuser = () => {
+  return {
+    type: 'StartGetuser'
+  }
+}
