@@ -10,7 +10,7 @@ import logo from '../../assets/image/logo.png'
 import { BasketSvg, DownSvg, DownSvgWhite, FilterSvg, HeartSvg, MenuMobileSvg, MenuSvg } from '@/assets/Svg'
 import Search from './search'
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { GetUserIfno } from '@/services/action/action.js'
 
 const Header = () => {
@@ -18,12 +18,14 @@ const Header = () => {
   const [modal, setModal] = useState("login")
   const [email, setEmail] = useState("")
   const [haveUser, setHaveUser] = useState("")
-
+  const user = useSelector((st) => st.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(GetUserIfno())
   }, [])
+
+
 
   return <div className='header'>
     {modal == "login" && ShowLogin &&
@@ -55,7 +57,7 @@ const Header = () => {
         <HeartSvg />
       </div>
     </div>
-    {haveUser ? <div>
+    {user.data?.length == 0 ? <div>
       <p onClick={() => {
         setModal("login")
         setShowLogin(true)

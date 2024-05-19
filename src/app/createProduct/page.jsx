@@ -3,9 +3,10 @@ import UIInput from '@/UI/input';
 import TeaxAre from '@/UI/textAre'
 import './styles.css'
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import UIButton from '@/UI/button';
 import { XSvg } from '@/assets/Svg';
+import { AddProductPermission, Logout } from '@/services/action/action';
 
 
 const CreateProduct = () => {
@@ -14,6 +15,10 @@ const CreateProduct = () => {
 
   const [files, setFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
+
+  const permission = useSelector((st) => st.permission)
+  console.log(permission.permision, 'permission')
+  const dispatch = useDispatch()
 
 
   const handleFileChange = (event) => {
@@ -44,7 +49,11 @@ const CreateProduct = () => {
     setPreviews(item)
   }
 
-  if (show)
+  useEffect(() => {
+    dispatch(AddProductPermission())
+  }, [])
+
+  if (permission.permision == "allow")
     return <div className="createProduct">
       <p id="createProductTitle" style={{ color: "#FFB800" }} className="jeJost600_24">Добавить товар в каталог</p>
       <p id="createProductPhoto">Фото товара</p>
@@ -61,7 +70,7 @@ const CreateProduct = () => {
           })}
 
           <div className='AddPhotoCreateProduct'>
-            <label for="file-upload" class="custom-file-upload">
+            <label htmlFor="file-upload" className="custom-file-upload">
               +
             </label>
             <input onChange={handleFileChange} id="file-upload" type="file" />
@@ -85,8 +94,9 @@ const CreateProduct = () => {
         <UIButton title={"Опубликовать"} />
       </div>
     </div>
-  else {
+  else if (permission.permision == "forbid") {
     return <div>
+      <p>no permition</p>
     </div>
   }
 }

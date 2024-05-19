@@ -53,3 +53,10 @@ export const SuccessGetUser = (data) => {
     data
   }
 }
+
+export const SuccessGetPermition = (data) => {
+  return {
+    type: "SuccessGetPermition",
+    data
+  }
+}

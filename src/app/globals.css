@@ -28,6 +28,7 @@ body {
   padding: 0 140px;
   max-width: 1440px;
   margin: auto;
+  min-height: calc(100vh - 200px);
 }
 
 @layer utilities {

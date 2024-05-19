@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr } from './successAction'
-import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr } from './errorAction'
-import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr } from './startAction'
+import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr } from './successAction'
+import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr } from './errorAction'
+import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 const token = localStorage.getItem('token')
 
@@ -173,7 +173,6 @@ export const ReSendConfirmCode = (data) => {
 
 
 export const LoginAction = (data) => {
-  console.log(data)
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -184,7 +183,6 @@ export const LoginAction = (data) => {
   return (dispatch) => {
     dispatch(StartLogin())
     axios.post(`${appHostname}/login`, data, config).then((data) => {
-      console.log(data)
       if (data.data.status) {
         localStorage.setItem("token", data.data.token)
         dispatch(GetUserIfno())
@@ -225,6 +223,52 @@ export const GetUserIfno = () => {
       }
     }).catch((error) => {
       dispatch(ErrorGetUser())
+    })
+  }
+}
+
+export const AddProductPermission = () => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  return (dispatch) => {
+    dispatch(StartGetPermition())
+    axios.post(`${appHostname}/validation_add_product_permission`, {}, config).then((data) => {
+      if (data.data.status) {
+        dispatch(SuccessGetPermition(data.data.user))
+      }
+      else {
+        dispatch(ErrorGetPermition())
+      }
+    }).catch((error) => {
+      console.log("errro")
+      dispatch(ErrorGetPermition())
+    })
+  }
+}
+
+export const Logout = () => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  localStorage.removeItem("token")
+  return (dispatch) => {
+    dispatch(StartGetPermition())
+    axios.post(`${appHostname}/logout`, config).then((data) => {
+      if (data.data.status) {
+
+      }
+      else {
+      }
+    }).catch((error) => {
     })
   }
 }

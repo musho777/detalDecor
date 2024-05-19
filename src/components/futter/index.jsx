@@ -5,7 +5,7 @@ import logo from '../../assets/image/logo2.png'
 import { TelegramSvg } from '@/assets/Svg'
 const Futter = () => {
   return <div className="futter">
-    <div >
+    <div>
       <div className='futterLogoWrapper'>
         <Image
           src={logo}

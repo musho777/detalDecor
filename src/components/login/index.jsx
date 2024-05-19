@@ -15,7 +15,6 @@ const Login = ({ close, open, changeModal }) => {
   const [password, setPassword] = useState({ value: "", error: "" })
   const [error, setError] = useState("")
   const [allow, setAllow] = useState(false)
-  console.log(loginState)
   useEffect(() => {
     dispatch(ClearLogin())
   }, [])

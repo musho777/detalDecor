@@ -44,3 +44,9 @@ export const StartGetuser = () => {
     type: 'StartGetuser'
   }
 }
+
+export const StartGetPermition = () => {
+  return {
+    type: 'StartGetPermition'
+  }
+}

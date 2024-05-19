@@ -52,3 +52,10 @@ export const ErrorGetUser = (error) => {
     error
   }
 }
+
+export const ErrorGetPermition = (error) => {
+  return {
+    type: "ErrorGetPermition",
+    error
+  }
+}
