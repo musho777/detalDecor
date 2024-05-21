@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import Auth from '../Auth/index'
 import { useEffect, useRef, useState } from 'react'
-import { ClearRegistrSgtatus, GetCountry, Register } from '@/services/action/action'
+import { ClearRegistrSgtatus, GetCountry, Logout, Register } from '@/services/action/action'
 import Swicher from '../swicher'
 import UIButton from '@/UI/button'
 import UIInput from '@/UI/input'
@@ -134,13 +134,12 @@ const Registr = ({ open, close, changeModal, setEmail }) => {
         email: item.find(elm => elm.id == "email")?.value,
         surname: item.find(elm => elm.id == "surname")?.value,
         phone: item.find(elm => elm.id == "phone")?.value,
-        country_id: [1],
+        country_id: item.find(elm => elm.id == "country")?.value,
         password: item.find(elm => elm.id == "password")?.value,
         password_confirmation: item.find(elm => elm.id == "password_confirmation")?.value,
         company_name: item.find(elm => elm.placeholder == "company_name")?.value
       }))
     }
-
   }
 
   const changeValue = (e, i) => {
@@ -155,7 +154,7 @@ const Registr = ({ open, close, changeModal, setEmail }) => {
       item[i].value.push(e)
     }
     else {
-      let index = item[i].value.findIndex(el => el.name == e.name)
+      let index = item[i].value.findIndex(el => el == e)
       item[i].value.splice(index, 1)
     }
     setData(item)
@@ -174,7 +173,6 @@ const Registr = ({ open, close, changeModal, setEmail }) => {
           if (elm.select) {
             return <div>
               <UISelect
-                multy
                 onChange={(e) => changeSelectValue(e, i)}
                 error={elm.error}
                 data={country.data}

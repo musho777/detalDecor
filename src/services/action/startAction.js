@@ -50,3 +50,15 @@ export const StartGetPermition = () => {
     type: 'StartGetPermition'
   }
 }
+
+export const StartGetFild = () => {
+  return {
+    type: 'StartGetFild'
+  }
+}
+
+export const StartGetCurrency = () => {
+  return {
+    type: 'StartGetCurrency'
+  }
+}

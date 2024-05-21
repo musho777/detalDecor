@@ -59,3 +59,17 @@ export const ErrorGetPermition = (error) => {
     error
   }
 }
+
+export const ErrorGetFild = (error) => {
+  return {
+    type: 'ErrorGetFild',
+    error
+  }
+}
+
+export const ErrorGetCurency = (error) => {
+  return {
+    type: 'ErrorGetCurency',
+    error
+  }
+}

@@ -1,9 +1,11 @@
 import axios from "axios"
-import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr } from './successAction'
-import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr } from './errorAction'
-import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr } from './startAction'
+import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr } from './successAction'
+import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr } from './errorAction'
+import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 const token = localStorage.getItem('token')
+
+
 
 export const GetCategory = () => {
   const headers = {
@@ -128,7 +130,6 @@ export const ConfirmMail = (data) => {
     dispatch(StartConfirmCode())
     axios.post(`${appHostname}/confirm_register`, data, config).then((data) => {
       if (data.data.status) {
-        console.log(data)
         localStorage.setItem("token", data.data.token)
         dispatch(SuccessConfirmCode())
       }
@@ -238,14 +239,16 @@ export const AddProductPermission = () => {
   return (dispatch) => {
     dispatch(StartGetPermition())
     axios.post(`${appHostname}/validation_add_product_permission`, {}, config).then((data) => {
+      console.log(data)
       if (data.data.status) {
-        dispatch(SuccessGetPermition(data.data.user))
+        dispatch(SuccessGetPermition(data.data.message))
       }
       else {
-        dispatch(ErrorGetPermition())
+        StatusAction("errorStatus", data.data.message)
+        dispatch(ErrorGetPermition(data.data.message))
       }
     }).catch((error) => {
-      console.log("errro")
+      console.log(error, 'error')
       dispatch(ErrorGetPermition())
     })
   }
@@ -270,5 +273,99 @@ export const Logout = () => {
       }
     }).catch((error) => {
     })
+  }
+}
+
+export const GetFilds = (id) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  return (dispatch) => {
+    dispatch(StartGetFild())
+    axios.get(`${appHostname}/get_category_fields?category_id=${id}`, config).then((data) => {
+      if (data.data.status) {
+        dispatch(SuccessGetFild(data.data.data))
+      }
+      else {
+        dispatch(ErrorGetFild())
+      }
+    }).catch((error) => {
+      console.log(error, '222')
+      dispatch(ErrorGetFild())
+    })
+  }
+}
+
+
+export const GetCurrency = () => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  return (dispatch) => {
+    dispatch(StartGetCurrency())
+    axios.get(`${appHostname}/get_currency`, config).then((data) => {
+      if (data.data.status) {
+        dispatch(SuccessGetCurency(data.data.data))
+      }
+      else {
+        dispatch(ErrorGetCurency())
+      }
+    }).catch((error) => {
+      dispatch(ErrorGetCurency())
+    })
+  }
+}
+
+
+
+export const CloseStatus = (msg) => {
+  return {
+    type: 'CloseStatus',
+    msg
+  }
+}
+
+
+export const CreateProductApi = (data) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  return (dispatch) => {
+    // dispatch(StartGetPermition())
+    axios.post(`${appHostname}/create_product`, data, config).then((data) => {
+      console.log(data, "data")
+      if (data.data.status) {
+        dispatch(StatusAction("successStatus", data.data.message))
+        // dispatch(SuccessGetPermition(data.data.message))
+      }
+      else {
+        dispatch(StatusAction("errorStatus", data.data?.message))
+        // dispatch(ErrorGetPermition())
+      }
+    }).catch((error) => {
+      console.log(error)
+      dispatch(StatusAction("errorStatus", data.data?.message))
+      // dispatch(ErrorGetPermition())
+    })
+  }
+}
+
+
+export const StatusAction = (type, msg) => {
+  return {
+    type: type,
+    msg
   }
 }

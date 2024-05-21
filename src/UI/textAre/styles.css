@@ -11,6 +11,10 @@
   height: 115px;
 }
 
+.tox .tox-statusbar__branding svg {
+  display: none !important;
+}
+
 @media only screen and (max-width: 768px) {
   .TeaxtAreaWrapper>textarea {
     height: 105px;

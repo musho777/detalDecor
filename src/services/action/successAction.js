@@ -60,3 +60,17 @@ export const SuccessGetPermition = (data) => {
     data
   }
 }
+
+export const SuccessGetFild = (data) => {
+  return {
+    type: "SuccessGetFild",
+    data
+  }
+}
+
+export const SuccessGetCurency = (data) => {
+  return {
+    type: 'SuccessGetCurency',
+    data
+  }
+} 

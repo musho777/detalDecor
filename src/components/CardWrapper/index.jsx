@@ -16,6 +16,7 @@ const CardWrapper = ({ data, loading }) => {
   }
   return <div className='CardWrapper'>
     {data.map((elm, i) => {
+      console.log(data, 'data1')
       return <Card
         fields={elm.fields}
         index={i}

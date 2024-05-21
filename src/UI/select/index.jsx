@@ -1,62 +1,59 @@
-import { useEffect, useState } from 'react';
-import "./styles.css"
-import { DownSvg } from '@/assets/Svg';
-import CheckBox from '../../UI/checkbox'
+import * as React from 'react';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import ListItemText from '@mui/material/ListItemText';
+import Select from '@mui/material/Select';
+import Checkbox from '@mui/material/Checkbox';
+import './styles.css'
 
-const UISelect = ({ selectedData, multy, data, error, onChange }) => {
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
 
-  // useEffect(() => {
-  //   document.body.addEventListener('click', () => setIsActive(false));
-  //   return () => {
-  //     // document.body.removeEventListener('click', setIsActive(false));
-  //   };
-  // }, [])
-  const [isActive, setIsActive] = useState(false);
-  return <div id={error ? "selectError" : ""} onClick={(e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsActive(!isActive)
-  }} className='select'>
-    <div className='seectHeader'>
-      {!selectedData.length &&
-        <p>{"City"}</p>
-      }
-      {selectedData?.map((elm, i) => {
-        return <p>{elm.name}</p>
-      })}
-      <div className='downSvgDiv'>
-        <DownSvg />
-      </div>
-    </div>
-    <div
 
-      onClick={(e) => {
-        e.stopPropagation()
-        e.preventDefault()
-      }}
-      className='sleectOption' id={isActive ? 'activeSelect' : ''}>
-      {
-        isActive && <div
-          onClick={(e) => {
-            e.stopPropagation()
-            e.preventDefault()
-          }}
+export default function UISelect({ data, error, onChange, label, label1, multiple = true }) {
+  const [personName, setPersonName] = React.useState([]);
+
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+  return (
+    <div className='UiSelect'>
+      <p id="label" className='Jost400'>{label}</p>
+      <FormControl sx={{ width: "100%" }} error={error}>
+        <InputLabel id="demo-multiple-checkbox-label">{label1}</InputLabel>
+        <Select
+          labelId="demo-multiple-checkbox-label"
+          id="demo-multiple-checkbox"
+          multiple={multiple}
+          value={personName}
+          onChange={handleChange}
+          input={<OutlinedInput style={{ borderRadius: 0 }} label={label1} />}
+          renderValue={(selected) => selected.join(', ')}
+          MenuProps={MenuProps}
         >
-          {data.map((elm, i) => {
-            return <div onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              onChange(elm)
-            }
-            } className='sleectOptionItem'>
-              {multy && <CheckBox checked={selectedData.findIndex((e) => e.name == elm.name) >= 0} />}
-              <p className='Jost400_13'>{elm.name}</p>
-            </div>
-          })}
-        </div>
-      }
+          {data?.map((name) => (
+            <MenuItem onClick={() => onChange(name.id)} key={name.id} value={name.name}>
+              <Checkbox checked={personName.indexOf(name.name) > -1} />
+              <ListItemText primary={name.name} />
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
     </div>
-  </div>
+  );
 }
-
-export default UISelect

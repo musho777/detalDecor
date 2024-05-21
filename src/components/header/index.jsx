@@ -3,31 +3,45 @@ import Image from 'next/image'
 import Login from "../Login/index.jsx"
 import Registr from '../Registr/index.jsx'
 import MailVereficastion from '../MailVerefication'
-import img from '../../assets/image/Ellipse8.png'
 
 import './style.css'
 import logo from '../../assets/image/logo.png'
-import { BasketSvg, DownSvg, DownSvgWhite, FilterSvg, HeartSvg, MenuMobileSvg, MenuSvg } from '@/assets/Svg'
+import { BasketSvg, DownSvgWhite, FilterSvg, HeartSvg, MenuMobileSvg, MenuSvg } from '@/assets/Svg'
 import Search from './search'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { GetUserIfno } from '@/services/action/action.js'
+import { CloseStatus, GetUserIfno } from '@/services/action/action.js'
+import Alert from '@mui/material/Alert';
+
 
 const Header = () => {
   const [ShowLogin, setShowLogin] = useState(false)
   const [modal, setModal] = useState("login")
   const [email, setEmail] = useState("")
-  const [haveUser, setHaveUser] = useState("")
   const user = useSelector((st) => st.user)
   const dispatch = useDispatch()
+  const status = useSelector((st) => st.status)
 
   useEffect(() => {
     dispatch(GetUserIfno())
   }, [])
 
+  useEffect(() => {
+    if (status.show) {
+      setTimeout(() => {
+        dispatch(CloseStatus())
+      }, 4000)
+    }
+  }, [status])
+
 
 
   return <div className='header'>
+    <div className='AlertDiv'>
+      {status.show && <Alert variant="filled" severity={status.type}>
+        {status.msg}
+      </Alert>}
+    </div>
     {modal == "login" && ShowLogin &&
       < Login changeModal={() => setModal("reg")} open={ShowLogin} close={() => setShowLogin(false)} />
     }

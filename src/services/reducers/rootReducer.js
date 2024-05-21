@@ -8,6 +8,9 @@ import ConfirmCodeReducer from './ConfirmCodeReducer'
 import LoginReducer from './LoginReducer'
 import UserReducer from './userReducer'
 import CreateProductPermission from './CreateProductPermission'
+import GetFildReducer from './getFildReducer'
+import GetCurencyReducer from './getCurencyReducer'
+import StatusReducer from './statusReducer'
 
 const rootReducer = combineReducers({
   category: GetCategoryReducer,
@@ -18,7 +21,10 @@ const rootReducer = combineReducers({
   confrimCode: ConfirmCodeReducer,
   loginState: LoginReducer,
   user: UserReducer,
-  permission: CreateProductPermission
+  permission: CreateProductPermission,
+  getFild: GetFildReducer,
+  curency: GetCurencyReducer,
+  status: StatusReducer
 });
 
 export default rootReducer;

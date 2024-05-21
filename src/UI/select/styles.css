@@ -8,6 +8,10 @@
   border: 1px solid white;
 }
 
+.UiSelect {
+  margin-bottom: 15px;
+}
+
 .seectHeader p {
   color: #8a8080;
   font-size: 13px;
@@ -19,45 +23,29 @@
   right: 15px;
 }
 
-#selectError {
-  border: 1px solid red;
+.demo-multiple-checkbox-label {
+  border: 1px solid white !important;
 }
 
-.seectHeader {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+  background: white !important;
+  border-radius: 0;
 }
 
-.sleectOptionItem {
-  display: flex;
-  cursor: pointer;
+#demo-multiple-checkbox-label {
+  margin-top: -8px !important;
 }
 
-.sleectOptionItem:hover {
-  background-color: #dddddd;
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 7.25px 14px !important;
 }
 
-.sleectOption {
-  height: 0;
-  opacity: 1;
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  background-color: white;
-  left: 0;
-  overflow-y: auto;
-  transition: 0.7s;
-}
+@media only screen and (max-width: 768px) {
+  .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 5.25px 14px !important;
+  }
 
-.sleectOption>div {
-  padding: 10px;
-}
-
-#activeSelect {
-  height: 91px !important;
-}
-
-.sleectOptionItem {
-  padding: 10px 2px;
+  #demo-multiple-checkbox-label {
+    margin-top: -11px !important;
+  }
 }

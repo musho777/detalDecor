@@ -1,8 +1,8 @@
 const initialState = {
   loading: true,
-  data: [],
+  data: "",
   permision: "",
-  error: ""
+  error: "",
 };
 const CreateProductPermission = (state = initialState, action) => {
   let temp = { ...state }
@@ -14,14 +14,14 @@ const CreateProductPermission = (state = initialState, action) => {
       temp.permision = "forbid"
       break;
     case 'SuccessGetPermition':
+      console.log(action.data, 'action.data')
       temp.data = action.data
       temp.error = ""
       temp.loading = false
       temp.permision = "allow"
       break;
     case 'ErrorGetPermition':
-      console.log("e2")
-      temp.data = []
+      temp.data = action.data
       temp.error = action.error
       temp.loading = false
       temp.permision = "forbid"

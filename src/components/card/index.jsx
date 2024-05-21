@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 
 
 const Card = ({ fields, loading, data, index }) => {
+  console.log(data, 'data')
   const handleDragStart = (e) => {
     e.preventDefault()
   }
@@ -61,7 +62,8 @@ const Card = ({ fields, loading, data, index }) => {
           })}
         </div>
         <div className='CardAddBasket'>
-          <p className='Jost500_18' style={{ color: "#FFB800" }}>{data?.price} руб.</p>
+          <p className='Jost500_18' style={{ color: "#FFB800" }}>{data?.price} {data?.currencys?.name
+          }</p>
           <AddBasket />
         </div>
       </div>
