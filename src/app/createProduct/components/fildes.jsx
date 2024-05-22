@@ -1,9 +1,9 @@
 import TeaxAre from '@/UI/textAre'
 import UIInput from '@/UI/input';
-const Fildes = ({ type, error, value, handelChange, id, lable }) => {
+const Fildes = ({ type, error, value, handelChange, id, lable, lang }) => {
   if (type == "textarea") {
     return <TeaxAre
-      error={error}
+      error={lang == "am" && error}
       value={value}
       onChange={(e) => handelChange(e, id)}
       label={lable}
@@ -11,7 +11,7 @@ const Fildes = ({ type, error, value, handelChange, id, lable }) => {
   }
   else {
     return <UIInput
-      error={error}
+      error={lang == "am" && error}
       value={value}
       onChange={(e) => handelChange(e, id)}
       type={type}
