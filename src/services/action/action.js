@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SuccessConfirmCode, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr } from './successAction'
-import { ErrorConfirmCode, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr } from './errorAction'
-import { StartConfirmCode, StartGetBanner, StartGetCategory, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr } from './startAction'
+import { SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr } from './successAction'
+import { ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr } from './errorAction'
+import { StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 const token = localStorage.getItem('token')
 
@@ -343,21 +343,21 @@ export const CreateProductApi = (data) => {
     }
   };
   return (dispatch) => {
-    // dispatch(StartGetPermition())
+    dispatch(StartCreateProduct())
     axios.post(`${appHostname}/create_product`, data, config).then((data) => {
       console.log(data, "data")
       if (data.data.status) {
         dispatch(StatusAction("successStatus", data.data.message))
-        // dispatch(SuccessGetPermition(data.data.message))
+        dispatch(SuccessCreateProduct(data.data.message))
       }
       else {
         dispatch(StatusAction("errorStatus", data.data?.message))
-        // dispatch(ErrorGetPermition())
+        dispatch(ErrorCreateProduct())
       }
     }).catch((error) => {
       console.log(error)
       dispatch(StatusAction("errorStatus", data.data?.message))
-      // dispatch(ErrorGetPermition())
+      dispatch(ErrorGetPermition())
     })
   }
 }

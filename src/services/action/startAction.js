@@ -62,3 +62,9 @@ export const StartGetCurrency = () => {
     type: 'StartGetCurrency'
   }
 }
+
+export const StartCreateProduct = () => {
+  return {
+    type: 'StartCreateProduct'
+  }
+}

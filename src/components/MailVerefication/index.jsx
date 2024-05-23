@@ -37,6 +37,7 @@ const MailVereficastion = ({ open, close, changeModal, email }) => {
     }
     if (confrimCode.status) {
       close()
+      window.location = "/"
     }
   }, [confrimCode])
 

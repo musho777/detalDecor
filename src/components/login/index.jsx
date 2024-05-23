@@ -43,6 +43,7 @@ const Login = ({ close, open, changeModal }) => {
   useEffect(() => {
     setError("")
     if (loginState.status) {
+      window.location = "/"
       close()
     }
     if (loginState.error)

@@ -11,6 +11,8 @@ import CreateProductPermission from './CreateProductPermission'
 import GetFildReducer from './getFildReducer'
 import GetCurencyReducer from './getCurencyReducer'
 import StatusReducer from './statusReducer'
+import createProductReducer from './createProductReducer'
+
 
 const rootReducer = combineReducers({
   category: GetCategoryReducer,
@@ -24,7 +26,8 @@ const rootReducer = combineReducers({
   permission: CreateProductPermission,
   getFild: GetFildReducer,
   curency: GetCurencyReducer,
-  status: StatusReducer
+  status: StatusReducer,
+  createProduct: createProductReducer
 });
 
 export default rootReducer;

@@ -18,6 +18,7 @@ const CreateProduct = () => {
   const category = useSelector((st) => st.category)
   const getFild = useSelector((st) => st.getFild)
   const curency = useSelector((st) => st.curency)
+  const createProduct = useSelector((st) => st.createProduct)
 
 
   const [alignment, setAlignment] = useState('am');
@@ -243,7 +244,7 @@ const CreateProduct = () => {
       </div>
       <div>
         <p className='errorText' style={{ marginBottom: 30 }}>{permission.data}</p>
-        <UIButton onClick={() => SendData()} title={"Опубликовать"} />
+        <UIButton loading={createProduct.loading} onClick={() => SendData()} title={"Опубликовать"} />
       </div>
     </div>
   else if (permission.permision == "forbid") {

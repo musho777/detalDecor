@@ -73,3 +73,10 @@ export const ErrorGetCurency = (error) => {
     error
   }
 }
+
+export const ErrorCreateProduct = (error) => {
+  return {
+    type: 'ErrorCreateProduct',
+    error
+  }
+}

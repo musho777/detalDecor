@@ -73,4 +73,11 @@ export const SuccessGetCurency = (data) => {
     type: 'SuccessGetCurency',
     data
   }
-} 
+}
+
+export const SuccessCreateProduct = (data) => {
+  return {
+    type: 'SuccessCreateProduct',
+    data
+  }
+}
