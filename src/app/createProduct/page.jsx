@@ -160,7 +160,6 @@ const CreateProduct = () => {
       }
     })
     if (send) {
-      window.location = "/"
       setHaveError(false)
       dispatch(CreateProductApi(formData))
     }

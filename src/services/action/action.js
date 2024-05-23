@@ -349,6 +349,7 @@ export const CreateProductApi = (data) => {
       if (data.data.status) {
         dispatch(StatusAction("successStatus", data.data.message))
         dispatch(SuccessCreateProduct(data.data.message))
+        window.location = "/"
       }
       else {
         dispatch(StatusAction("errorStatus", data.data?.message))
