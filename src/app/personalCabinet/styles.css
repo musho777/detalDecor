@@ -1,0 +1,152 @@
+.navigator {
+  height: 100%;
+  width: 200px;
+}
+
+#NavigatorTitle {
+  color: #FFB800;
+  margin-bottom: 30px;
+}
+
+.navigatorDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.navigatorDiv>p {
+  cursor: pointer;
+  width: auto;
+  padding-bottom: 4px;
+
+}
+
+.navigatorDiv>p:hover {
+  color: #FFB800;
+}
+
+#actieceNavigation {
+  width: auto;
+  border-bottom: 1.5px solid #FFB800;
+  width: fit-content;
+}
+
+
+
+.personalCabinetLayout {
+  margin: 50px 0;
+  display: flex;
+}
+
+.PersonalCabinetDiv {
+  width: 100%;
+}
+
+.PersonalCabinetInputWrappr {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.PersonalCabinet {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.personalCabinetLayoutWrapper {
+  display: flex;
+  width: calc(100% - 200px);
+  padding: 58px;
+}
+
+.avatarDiv {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.avatarDiv>img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+#PersonalCabinetTitle {
+  margin-bottom: 40px;
+}
+
+.CameraSvg {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+.personalCabinetButton {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.SafetyButton {
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 1014px) {
+  .personalCabinetLayoutWrapper {
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 958px) {
+  .PersonalCabinet {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Safety {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  .PersonalCabinetInputWrappr {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .personalCabinetLayoutWrapper {
+    width: 100%;
+    padding: 58px 0;
+  }
+
+  .navigator {
+    width: 100%;
+  }
+
+  .navigatorDiv>p {
+    text-wrap: nowrap;
+  }
+
+  .navigatorDiv {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .personalCabinetLayout {
+    flex-direction: column;
+  }
+}

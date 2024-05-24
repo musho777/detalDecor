@@ -1,7 +1,9 @@
 import Carousel from 'react-spring-3d-carousel';
 import { ProductCardWrapper } from './ProductCardWrapper'
 import AliceCarousel from 'react-alice-carousel';
+import { useState } from 'react';
 export const Bestmanufacturers = () => {
+  const [goToSlide, setGoToSlide] = useState(null);
 
   const slides = [
     { content: <ProductCardWrapper />, key: 1 },
@@ -13,11 +15,14 @@ export const Bestmanufacturers = () => {
     <ProductCardWrapper />,
     <ProductCardWrapper />,
   ]
+  const table = slides.map((element, index) => {
+    return { ...element, onClick: () => setGoToSlide(index) };
+  });
   return <div>
     <div className='Bestmanufacturers'>
       <Carousel
-        slides={slides}
-        showNavigation={true}
+        goToSlide={goToSlide}
+        slides={table}
       />
     </div>
     <div className='Bestmanufacturers1'>
