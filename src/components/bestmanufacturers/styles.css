@@ -1,0 +1,142 @@
+.Bestmanufacturers {
+  width: 100%;
+  height: 500px;
+  margin: 50px 0;
+  z-index: 9999;
+}
+
+.ManCard {
+  width: 33%;
+  height: 200px;
+  background-color: #E6E6E6;
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 160px;
+  max-width: 180px;
+}
+
+.Bestmanufacturers1 {
+  display: none;
+}
+
+.ManCardImage {
+  width: 100%;
+  object-fit: cover !important;
+  height: 130px;
+  border-radius: 12px;
+  border: 1px solid #BFBFBF;
+}
+
+.ManCardPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ManCardPriceDiv {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ProductCardWrapper {
+  width: 100%;
+  padding: 20px;
+  background-color: #576569;
+  overflow-y: scroll;
+  border-radius: 12px;
+}
+
+.ProductCardWrapperItem {
+  display: flex;
+  gap: 15px;
+}
+
+.bestmanufacturersLogo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover !important;
+}
+
+.bestmanufacturersLogoWrapper1 {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.bestmanufacturersLogoWrapper2 {
+  display: flex;
+  gap: 20px;
+}
+
+.bestmanufacturersLogoWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.RaringDiv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ProductCardWrapperCategory {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.ProductCardWrapperCategory>div {
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #282929;
+}
+
+.bestmanufacturersLogoWrapperMobile {
+  display: none;
+}
+
+@media only screen and (max-width: 640px) {
+  .css-1fzpoyk {
+    width: 100% !important;
+  }
+
+  .Bestmanufacturers1 {
+    margin-top: 20px;
+    display: block;
+  }
+
+  .Bestmanufacturers {
+    display: none;
+  }
+
+  .ProductCardWrapper {
+    overflow-x: hidden;
+    padding: 10px;
+  }
+
+  .ProductCardWrapperItem {
+    overflow-x: scroll;
+  }
+
+  .bestmanufacturersLogoWrapper2 {
+    display: none;
+  }
+
+  .ProductCardWrapperCategory {
+    margin: 10px 0;
+  }
+
+  .bestmanufacturersLogoWrapperMobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .Bestmanufacturers {
+    height: 420px;
+  }
+}

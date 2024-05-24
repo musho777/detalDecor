@@ -171,12 +171,11 @@ const Registr = ({ open, close, changeModal, setEmail }) => {
           if (elm.input)
             return <UIInput value={elm.value} errorText={elm.errorText} onChange={(e) => changeValue(e, i)} error={elm.error} key={i} type={elm.type} placeholder={elm.placeholder} />
           if (elm.select) {
-            return <div>
+            return <div key={i}>
               <UISelect
                 onChange={(e) => changeSelectValue(e, i)}
                 error={elm.error}
                 data={country.data}
-                key={i}
                 type={elm.type}
                 placeholder={elm.placeholder}
                 selectedData={elm.value}

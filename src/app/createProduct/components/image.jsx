@@ -3,7 +3,7 @@ import { XSvg } from '@/assets/Svg';
 const AddImage = ({ previews, RemoveImg, imageError, handleFileChange }) => {
   return <div className='AddPhotoCreateProductWrapper'>
     {previews?.map((elm, i) => {
-      return <div className='AddPhotoCreateProduct'>
+      return <div key={i} className='AddPhotoCreateProduct'>
         <div onClick={() => RemoveImg(i)}>
           <XSvg />
         </div>
