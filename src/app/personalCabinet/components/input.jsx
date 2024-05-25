@@ -1,7 +1,7 @@
 import './styles.css'
-export const Input = () => {
+export const Input = ({ label, value, onChange }) => {
   return <div className="Input">
-    <label>Имя</label>
-    <input />
+    <label>{label}</label>
+    <input onChange={(e) => onChange(e.target.value)} value={value ? value : ""} />
   </div>
 }

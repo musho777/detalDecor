@@ -23,8 +23,11 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: rgb(21, 24, 25);
+  color: rgb(var(--foreground-rgb));
+}
+
+.body {
   padding: 0 140px;
   max-width: 1440px;
   margin: auto;
@@ -208,23 +211,22 @@ input:focus {
   }
 }
 
-@media only screen and (max-width: 1140px) {
-
-  body {
+@media only screen and (max-width: 1160px) {
+  .body {
     padding: 0 70px;
   }
 }
 
 @media only screen and (max-width: 940px) {
 
-  body {
+  .body {
     padding: 0 50px;
   }
 }
 
 @media only screen and (max-width: 768px) {
 
-  body {
+  .body {
     padding: 0 50px;
   }
 
@@ -270,7 +272,7 @@ input:focus {
 }
 
 @media only screen and (max-width: 425px) {
-  body {
+  .body {
     padding: 0 20px;
   }
 

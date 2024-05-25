@@ -80,3 +80,10 @@ export const ErrorCreateProduct = (error) => {
     error
   }
 }
+
+export const ErrorUpdateData = (error) => {
+  return {
+    type: 'ErrorUpdateData',
+    error
+  }
+}

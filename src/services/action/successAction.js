@@ -81,3 +81,10 @@ export const SuccessCreateProduct = (data) => {
     data
   }
 }
+
+export const SuccessUpdateData = (data) => {
+  return {
+    type: 'SuccessUpdateData',
+    data
+  }
+}

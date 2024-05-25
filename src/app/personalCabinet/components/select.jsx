@@ -34,7 +34,7 @@ export default function Selects({ data, error, onChange, label, label1, multiple
   };
   return (
     <div className='Input'>
-      <label >Имя</label>
+      <label >{label}</label>
       <FormControl sx={{ width: "100%" }} error={error}>
         <Select
           labelId="demo-multiple-checkbox-label"

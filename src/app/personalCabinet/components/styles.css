@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 10px;
-  width: 260px;
+  width: 280px;
 }
 
 .Input>input {
@@ -37,4 +37,21 @@
   /* Change to desired color */
   border-width: 2px;
   /* Change border width if needed */
+}
+
+
+
+@media only screen and (max-width: 320px) {
+  .PersonalCabinetInputWrappr {
+    display: inline;
+    width: 100%;
+  }
+
+  .avatarDiv {
+    margin-bottom: 30px;
+  }
+
+  .Input {
+    width: 100%;
+  }
 }

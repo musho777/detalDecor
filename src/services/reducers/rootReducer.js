@@ -12,6 +12,7 @@ import GetFildReducer from './getFildReducer'
 import GetCurencyReducer from './getCurencyReducer'
 import StatusReducer from './statusReducer'
 import createProductReducer from './createProductReducer'
+import UpdateDataReducer from './UpdateDataReducer'
 
 
 const rootReducer = combineReducers({
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
   getFild: GetFildReducer,
   curency: GetCurencyReducer,
   status: StatusReducer,
-  createProduct: createProductReducer
+  createProduct: createProductReducer,
+  updateData: UpdateDataReducer
 });
 
 export default rootReducer;

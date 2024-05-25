@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr } from './successAction'
-import { ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr } from './errorAction'
-import { StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr } from './startAction'
+import { SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
+import { ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
+import { StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 const token = localStorage.getItem('token')
 
@@ -368,5 +368,32 @@ export const StatusAction = (type, msg) => {
   return {
     type: type,
     msg
+  }
+}
+
+export const UpdateUserInfo = (data) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  return (dispatch) => {
+    dispatch(StartUpdateData())
+    axios.post(`${appHostname}/update_user_info`, data, config).then((data) => {
+      console.log(data, "data")
+      if (data.data.status) {
+        dispatch(StatusAction("successStatus", data.data.message))
+        dispatch(SuccessUpdateData(data.data.message))
+      }
+      else {
+        dispatch(StatusAction("errorStatus", data.data?.message))
+        dispatch(ErrorUpdateData())
+      }
+    }).catch((error) => {
+      dispatch(StatusAction("errorStatus", data.data?.message))
+      dispatch(ErrorUpdateData())
+    })
   }
 }

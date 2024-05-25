@@ -68,3 +68,9 @@ export const StartCreateProduct = () => {
     type: 'StartCreateProduct'
   }
 }
+
+export const StartUpdateData = () => {
+  return {
+    type: 'StartUpdateData'
+  }
+}
