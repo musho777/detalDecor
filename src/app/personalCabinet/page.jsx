@@ -41,7 +41,6 @@ const PersonalCabinet = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log("----")
     if (!companiName) {
       setCompaniName(user.data.company_name)
       setPhone(user.data.phone)
@@ -49,8 +48,8 @@ const PersonalCabinet = () => {
         setPhoto(`https://detaldecor.digiluys.com/${user.data.logo}`)
       }
       setSurname(user.data.surname)
-      setViber(user.data.viber)
-      setWhatsapp(user.data.whatsapp)
+      setViber(user.data?.viber)
+      setWhatsapp(user.data?.whatsapp)
       setName(user.data.name)
       setDescription(user.data.description)
     }

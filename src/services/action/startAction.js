@@ -80,3 +80,9 @@ export const StartChangePassword = () => {
     type: 'StartChangePassword'
   }
 }
+
+export const StartGetChart = () => {
+  return {
+    type: 'StartGetChart'
+  }
+}

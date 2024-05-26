@@ -95,3 +95,10 @@ export const SucccessChangePassword = (data) => {
     data
   }
 }
+
+export const SuccessGetChart = (data) => {
+  return {
+    type: "SuccessGetChart",
+    data
+  }
+}

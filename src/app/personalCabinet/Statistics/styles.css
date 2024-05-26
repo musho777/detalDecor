@@ -1,10 +1,13 @@
 .ChartDiv {
-  border: 2px solid #BFBFBF;
+  /* border: 2px solid #BFBFBF; */
   border-radius: 10px;
-  width: 100%;
-  background-color: #383a3a;
+  width: 49%;
+  background-color: white;
 }
 
 .Statistics {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  justify-content: space-between;
 }

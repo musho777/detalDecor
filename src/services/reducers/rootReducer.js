@@ -14,6 +14,7 @@ import StatusReducer from './statusReducer'
 import createProductReducer from './createProductReducer'
 import UpdateDataReducer from './UpdateDataReducer'
 import ChangePasswordReducer from './ChangePasswordReducer'
+import GetChartReducer from './GetChartReducer'
 
 const rootReducer = combineReducers({
   category: GetCategoryReducer,
@@ -30,7 +31,8 @@ const rootReducer = combineReducers({
   status: StatusReducer,
   createProduct: createProductReducer,
   updateData: UpdateDataReducer,
-  chagenPassword: ChangePasswordReducer
+  chagenPassword: ChangePasswordReducer,
+  getChart: GetChartReducer
 });
 
 export default rootReducer;

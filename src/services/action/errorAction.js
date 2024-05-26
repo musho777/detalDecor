@@ -94,3 +94,10 @@ export const ErrorChangePassword = (error) => {
     error
   }
 }
+
+export const ErrorGetChart = (error) => {
+  return {
+    type: 'ErrorGetChart',
+    error
+  }
+} 

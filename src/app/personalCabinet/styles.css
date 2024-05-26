@@ -58,7 +58,8 @@
 .personalCabinetLayoutWrapper {
   display: flex;
   width: calc(100% - 200px);
-  padding: 58px;
+  /* padding: 58px; */
+  padding: 58px 0px 58px 58px;
 }
 
 .avatarDiv {

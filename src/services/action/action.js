@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SucccessChangePassword, SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
-import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
-import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
+import { SucccessChangePassword, SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetChart, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
+import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetChart, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
+import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetChart, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 const token = localStorage.getItem('token')
 
@@ -410,6 +410,29 @@ export const ChangePassword = (data) => {
     }).catch((error) => {
       dispatch(StatusAction("errorStatus", error.response.data?.message))
       dispatch(ErrorChangePassword())
+    })
+  }
+}
+
+export const GetcharterData = () => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  return (dispatch) => {
+    dispatch(StartGetChart())
+    axios.get(`${appHostname}/get_charter_data?day=${7}`, config).then((data) => {
+      if (data.data.status) {
+        dispatch(SuccessGetChart(data.data))
+      }
+      else {
+        dispatch(ErrorGetChart())
+      }
+    }).catch((error) => {
+      dispatch(ErrorGetChart(error))
     })
   }
 }
