@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
-import { ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
-import { StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
+import { SucccessChangePassword, SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
+import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
+import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 const token = localStorage.getItem('token')
 
@@ -239,7 +239,6 @@ export const AddProductPermission = () => {
   return (dispatch) => {
     dispatch(StartGetPermition())
     axios.post(`${appHostname}/validation_add_product_permission`, {}, config).then((data) => {
-      console.log(data)
       if (data.data.status) {
         dispatch(SuccessGetPermition(data.data.message))
       }
@@ -248,7 +247,6 @@ export const AddProductPermission = () => {
         dispatch(ErrorGetPermition(data.data.message))
       }
     }).catch((error) => {
-      console.log(error, 'error')
       dispatch(ErrorGetPermition())
     })
   }
@@ -294,7 +292,6 @@ export const GetFilds = (id) => {
         dispatch(ErrorGetFild())
       }
     }).catch((error) => {
-      console.log(error, '222')
       dispatch(ErrorGetFild())
     })
   }
@@ -345,7 +342,6 @@ export const CreateProductApi = (data) => {
   return (dispatch) => {
     dispatch(StartCreateProduct())
     axios.post(`${appHostname}/create_product`, data, config).then((data) => {
-      console.log(data, "data")
       if (data.data.status) {
         dispatch(StatusAction("successStatus", data.data.message))
         dispatch(SuccessCreateProduct(data.data.message))
@@ -356,18 +352,9 @@ export const CreateProductApi = (data) => {
         dispatch(ErrorCreateProduct())
       }
     }).catch((error) => {
-      console.log(error)
       dispatch(StatusAction("errorStatus", data.data?.message))
       dispatch(ErrorGetPermition())
     })
-  }
-}
-
-
-export const StatusAction = (type, msg) => {
-  return {
-    type: type,
-    msg
   }
 }
 
@@ -382,7 +369,6 @@ export const UpdateUserInfo = (data) => {
   return (dispatch) => {
     dispatch(StartUpdateData())
     axios.post(`${appHostname}/update_user_info`, data, config).then((data) => {
-      console.log(data, "data")
       if (data.data.status) {
         dispatch(StatusAction("successStatus", data.data.message))
         dispatch(SuccessUpdateData(data.data.message))
@@ -395,5 +381,40 @@ export const UpdateUserInfo = (data) => {
       dispatch(StatusAction("errorStatus", data.data?.message))
       dispatch(ErrorUpdateData())
     })
+  }
+}
+
+
+export const ChangePassword = (data) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  return (dispatch) => {
+    dispatch(StartChangePassword())
+    axios.post(`${appHostname}/update_password`, data, config).then((data) => {
+      if (data.data.status) {
+        dispatch(StatusAction("successStatus", data.data.message))
+        dispatch(SucccessChangePassword(data.data.message))
+      }
+      else {
+        dispatch(StatusAction("errorStatus", data.data?.message))
+        dispatch(ErrorChangePassword())
+      }
+    }).catch((error) => {
+      dispatch(StatusAction("errorStatus", error.response.data?.message))
+      dispatch(ErrorChangePassword())
+    })
+  }
+}
+
+
+export const StatusAction = (type, msg) => {
+  return {
+    type: type,
+    msg
   }
 }

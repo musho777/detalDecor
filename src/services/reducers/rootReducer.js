@@ -13,7 +13,7 @@ import GetCurencyReducer from './getCurencyReducer'
 import StatusReducer from './statusReducer'
 import createProductReducer from './createProductReducer'
 import UpdateDataReducer from './UpdateDataReducer'
-
+import ChangePasswordReducer from './ChangePasswordReducer'
 
 const rootReducer = combineReducers({
   category: GetCategoryReducer,
@@ -29,7 +29,8 @@ const rootReducer = combineReducers({
   curency: GetCurencyReducer,
   status: StatusReducer,
   createProduct: createProductReducer,
-  updateData: UpdateDataReducer
+  updateData: UpdateDataReducer,
+  chagenPassword: ChangePasswordReducer
 });
 
 export default rootReducer;

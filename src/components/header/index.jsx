@@ -21,7 +21,6 @@ const Header = () => {
   const user = useSelector((st) => st.user)
   const dispatch = useDispatch()
   const status = useSelector((st) => st.status)
-
   useEffect(() => {
     dispatch(GetUserIfno())
   }, [])
@@ -79,7 +78,10 @@ const Header = () => {
       <div className='MenuMobileHeader'><MenuMobileSvg /></div>
     </div> :
       <div className='UserDiv'>
-        <img src={"https://t3.ftcdn.net/jpg/05/87/76/66/360_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg"} />
+        <Image
+          width={30}
+          height={30}
+          src={`https://detaldecor.digiluys.com/${user.data?.logo}`} />
         <DownSvgWhite />
       </div>
     }

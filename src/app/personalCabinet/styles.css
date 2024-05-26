@@ -69,13 +69,13 @@
 }
 
 .avatarDiv>img {
-  width: 100%;
-  height: 100%;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 #PersonalCabinetTitle {
-  margin-bottom: 40px;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 .CameraSvg {
@@ -102,7 +102,7 @@
   margin-top: 30px;
 }
 
-@media only screen and (max-width: 1114px) {
+@media only screen and (max-width: 1200px) {
   .personalCabinetLayoutWrapper {
     padding-right: 0;
   }

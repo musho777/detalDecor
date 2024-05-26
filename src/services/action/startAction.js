@@ -74,3 +74,9 @@ export const StartUpdateData = () => {
     type: 'StartUpdateData'
   }
 }
+
+export const StartChangePassword = () => {
+  return {
+    type: 'StartChangePassword'
+  }
+}

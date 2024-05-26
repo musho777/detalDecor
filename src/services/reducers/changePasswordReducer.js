@@ -1,29 +1,29 @@
 const initialState = {
-  loading: true,
-  data: "",
-  permision: "",
+  loading: false,
+  data: [],
   error: "",
+  status: false
 };
-const CreateProductPermission = (state = initialState, action) => {
+const ChangePasswordReducer = (state = initialState, action) => {
   let temp = { ...state }
   switch (action.type) {
-    case 'StartGetPermition':
+    case 'StartChangePassword':
       temp.data = []
       temp.loading = true
       temp.error = ""
-      temp.permision = "forbid"
+      temp.status = false
       break;
-    case 'SuccessGetPermition':
+    case 'SucccessChangePassword':
       temp.data = action.data
       temp.error = ""
       temp.loading = false
-      temp.permision = "allow"
+      temp.status = true
       break;
-    case 'ErrorGetPermition':
-      temp.data = action.data
+    case 'ErrorChangePassword':
+      temp.data = []
       temp.error = action.error
       temp.loading = false
-      temp.permision = "forbid"
+      temp.status = false
       break;
     default:
       return temp;
@@ -32,4 +32,4 @@ const CreateProductPermission = (state = initialState, action) => {
 
 
 };
-export default CreateProductPermission;
+export default ChangePasswordReducer;

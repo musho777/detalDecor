@@ -88,3 +88,10 @@ export const SuccessUpdateData = (data) => {
     data
   }
 }
+
+export const SucccessChangePassword = (data) => {
+  return {
+    type: "SucccessChangePassword",
+    data
+  }
+}

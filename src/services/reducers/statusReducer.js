@@ -12,7 +12,7 @@ const StatusReducer = (state = initialState, action) => {
       temp.type = "success"
       break;
     case 'errorStatus':
-      temp.show = false
+      temp.show = true
       temp.msg = action.msg
       temp.type = "error"
       break;

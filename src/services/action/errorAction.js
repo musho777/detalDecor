@@ -87,3 +87,10 @@ export const ErrorUpdateData = (error) => {
     error
   }
 }
+
+export const ErrorChangePassword = (error) => {
+  return {
+    type: 'ErrorChangePassword',
+    error
+  }
+}

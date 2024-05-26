@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 
 
 const Card = ({ fields, loading, data, index }) => {
-  console.log(data, 'data')
   const handleDragStart = (e) => {
     e.preventDefault()
   }
