@@ -22,6 +22,10 @@
   padding: 10px;
 }
 
+#errorInput {
+  border: 1px solid red;
+}
+
 .EyePassword {
   position: absolute;
   top: 0;

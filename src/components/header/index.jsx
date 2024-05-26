@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CloseStatus, GetUserIfno } from '@/services/action/action.js'
 import Alert from '@mui/material/Alert';
+import { Skeleton } from '@mui/material'
 
 
 const Header = () => {
@@ -70,21 +71,31 @@ const Header = () => {
         <HeartSvg />
       </div>
     </div>
-    {user.data?.length == 0 ? <div>
-      <p onClick={() => {
-        setModal("login")
-        setShowLogin(true)
-      }} id="headerLogin" className='Jost500'>Вход / Регистрация</p>
-      <div className='MenuMobileHeader'><MenuMobileSvg /></div>
-    </div> :
-      <div className='UserDiv'>
+    {
+      user.loading && <div className='UserDiv'>
+        <Skeleton
+          sx={{ bgcolor: '#3a3c3d' }}
+          variant="circular" width={30} height={30} />
+        <DownSvgWhite />
+      </div>
+    }
+    {
+      !user.loading && user.data?.length == 0 && <div>
+        <p onClick={() => {
+          setModal("login")
+          setShowLogin(true)
+        }} id="headerLogin" className='Jost500'>Вход / Регистрация</p>
+        <div className='MenuMobileHeader'><MenuMobileSvg /></div>
+      </div>
+    }
+    {
+      user.data?.length != 0 && <div className='UserDiv'>
         <Image
           width={30}
           height={30}
           src={`https://detaldecor.digiluys.com/${user.data?.logo}`} />
         <DownSvgWhite />
-      </div>
-    }
+      </div>}
   </div>
 }
 export default Header

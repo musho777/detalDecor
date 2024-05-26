@@ -368,8 +368,9 @@ export const UpdateUserInfo = (data) => {
   };
   return (dispatch) => {
     dispatch(StartUpdateData())
-    axios.post(`${appHostname}/update_user_info`, data, config).then((data) => {
+    axios.post(`${appHostname}/update_profile_data`, data, config).then((data) => {
       if (data.data.status) {
+        dispatch(GetUserIfno())
         dispatch(StatusAction("successStatus", data.data.message))
         dispatch(SuccessUpdateData(data.data.message))
       }
@@ -378,7 +379,9 @@ export const UpdateUserInfo = (data) => {
         dispatch(ErrorUpdateData())
       }
     }).catch((error) => {
-      dispatch(StatusAction("errorStatus", data.data?.message))
+      console.log(error)
+      // dispatch(StatusAction("errorStatus",
+      //   response.data?.message))
       dispatch(ErrorUpdateData())
     })
   }

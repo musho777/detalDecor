@@ -44,9 +44,7 @@ const UIInput = ({ placeholder, type, onChange, error, errorText, value, label }
       < div onClick={() => setTipes("password")} className='eyeIcone'>
         <OpenEye />
       </div>
-
     }
-
   </div >
 }
 

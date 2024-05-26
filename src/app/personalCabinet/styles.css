@@ -68,9 +68,32 @@
   margin-bottom: 10px;
 }
 
+.loading {
+  width: 100%;
+  display: flex;
+  justify-content: center
+}
+
+.AddPhotoCreateProduct {
+  height: 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.tox-statusbar {
+  display: none !important;
+}
+
 .avatarDiv>img {
   border-radius: 50%;
   object-fit: cover;
+}
+
+.TeaxAreDiv {
+  margin-top: 30px;
+  width: 100%;
 }
 
 #PersonalCabinetTitle {
@@ -101,6 +124,19 @@
 .SafetyButton {
   margin-top: 30px;
 }
+
+/* .ImgLoading {
+  width: 50px;
+  height: 50px;
+  border: 1px solid red;
+}
+
+.ImgLoading span {
+  width: 100%;
+  height: 295px;
+  border-radius: 15px;
+} */
+
 
 @media only screen and (max-width: 1200px) {
   .personalCabinetLayoutWrapper {

@@ -1,26 +1,23 @@
 import './styles.css'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './styles.css'
 import { Editor } from '@tinymce/tinymce-react';
 
 
 const TeaxAre = ({ placeholder, type, onChange, error, errorText, value, label }) => {
-  const [types, setTipes] = useState(type)
+  const editorRef = useRef(null);
 
+  const log = () => {
+    if (editorRef.current) {
+      onChange(editorRef.current.getContent())
+    }
+  };
   return <div className='TeaxtAreaWrapper'>
     {label && <p id="label" className='Jost400'>{label}</p>}
-    {/* <textarea
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder}
-      type={types}
-      className='input'
-      id={error ? "errorInput" : ""}
-    />
-    <p className='InputerrorText'>{errorText}</p> */}
-
-
     <Editor
+      onEditorChange={log}
+      value={value}
+      onInit={(evt, editor) => editorRef.current = editor}
       apiKey='14dhlnaamh5copp091np7prtcxyx6sqf45p16prxqpcyp7oy'
       init={{
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
@@ -35,8 +32,6 @@ const TeaxAre = ({ placeholder, type, onChange, error, errorText, value, label }
       }}
       initialValue=""
     />
-
-
   </div >
 }
 
