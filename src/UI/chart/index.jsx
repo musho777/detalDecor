@@ -32,10 +32,12 @@ export const options = {
 
 
 export function Chart({ data, title }) {
-  const [dataa, setDataa] = useState({
-    labels: [],
-    datasets: [{}],
-  })
+  const [dataa, setDataa] = useState(
+    {
+      labels: [],
+      datasets: [{}],
+    }
+  )
 
 
   useEffect(() => {
