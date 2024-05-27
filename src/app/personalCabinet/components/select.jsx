@@ -1,7 +1,6 @@
 "use client"
 import * as React from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
@@ -21,7 +20,7 @@ const MenuProps = {
 };
 
 
-export default function Selects({ data, error, onChange, label, label1, multiple = true }) {
+export default function Selects({ data, error, onChange, label, multiple = true, defaultValue }) {
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
@@ -31,29 +30,53 @@ export default function Selects({ data, error, onChange, label, label1, multiple
     setPersonName(
       typeof value === 'string' ? value.split(',') : value,
     );
+    onChange(value)
   };
-  return (
-    <div className='Input'>
+
+  React.useEffect(() => {
+    setPersonName(defaultValue)
+  }, [defaultValue])
+
+  if (multiple)
+    return (
+      <div className='Input'>
+        <label >{label}</label>
+        <FormControl sx={{ width: "100%" }} error={error}>
+          <Select
+            labelId="demo-multiple-checkbox-label"
+            id="demo-multiple-checkbox"
+            multiple={multiple}
+            value={personName}
+            onChange={handleChange}
+            input={<OutlinedInput notched={false} style={{ borderRadius: 0, outline: "none" }} label={"Имя"} />}
+            renderValue={(selected) => selected.join(', ')}
+            MenuProps={MenuProps}
+          >
+            {data?.map((name) => (
+              <MenuItem onClick={() => onChange(name.id)} key={name.id} value={name.name}>
+                <Checkbox checked={personName.indexOf(name.name) > -1} />
+                <ListItemText primary={name.name} />
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+    );
+  else {
+    return <div className='Input'>
       <label >{label}</label>
-      <FormControl sx={{ width: "100%" }} error={error}>
+      <FormControl fullWidth>
         <Select
-          labelId="demo-multiple-checkbox-label"
-          id="demo-multiple-checkbox"
-          multiple={multiple}
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput notched={false} style={{ borderRadius: 0, outline: "none" }} label={"Имя"} />}
-          renderValue={(selected) => selected.join(', ')}
-          MenuProps={MenuProps}
         >
-          {data?.map((name) => (
-            <MenuItem onClick={() => onChange(name.id)} key={name.id} value={name.name}>
-              <Checkbox checked={personName.indexOf(name.name) > -1} />
-              <ListItemText primary={name.name} />
-            </MenuItem>
-          ))}
+          {data.map((elm, i) => {
+            return <MenuItem value={elm.id}>{elm.name}</MenuItem>
+          })}
         </Select>
       </FormControl>
     </div>
-  );
+  }
 }

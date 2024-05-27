@@ -31,16 +31,10 @@ export const options = {
 };
 
 
-export function Chart({ data }) {
+export function Chart({ data, title }) {
   const [dataa, setDataa] = useState({
     labels: [],
-    datasets: [
-      {
-        label: 'Dataset',
-        data: [],
-        backgroundColor: '#FFB800',
-      },
-    ],
+    datasets: [{}],
   })
 
 
@@ -54,12 +48,12 @@ export function Chart({ data }) {
         view.push(elm.view_count)
       })
       item.datasets = [{
-        label: 'Dataset',
+        label: title,
         data: view,
+        backgroundColor: '#FFB800',
       }]
       item.labels = lables
     }
-    console.log(item)
     setDataa(item)
   }, [data])
 

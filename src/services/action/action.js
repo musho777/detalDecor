@@ -163,12 +163,10 @@ export const ReSendConfirmCode = (data) => {
   };
 
   return (dispatch) => {
-    axios.post(`${appHostname}/resend_code_for_register`, data, config).then((data) => {
-      if (data.data.status) {
-        console.log(data)
-      }
-    }).catch((error) => {
-    })
+    axios.post(`${appHostname}/resend_code_for_register`, data, config)
+      .then((data) => {
+      }).catch((error) => {
+      })
   }
 }
 
@@ -379,9 +377,6 @@ export const UpdateUserInfo = (data) => {
         dispatch(ErrorUpdateData())
       }
     }).catch((error) => {
-      console.log(error)
-      // dispatch(StatusAction("errorStatus",
-      //   response.data?.message))
       dispatch(ErrorUpdateData())
     })
   }
@@ -414,7 +409,7 @@ export const ChangePassword = (data) => {
   }
 }
 
-export const GetcharterData = () => {
+export const GetcharterData = (periud) => {
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -424,7 +419,7 @@ export const GetcharterData = () => {
   };
   return (dispatch) => {
     dispatch(StartGetChart())
-    axios.get(`${appHostname}/get_charter_data?day=${7}`, config).then((data) => {
+    axios.get(`${appHostname}/get_charter_data?day=${periud}`, config).then((data) => {
       if (data.data.status) {
         dispatch(SuccessGetChart(data.data))
       }

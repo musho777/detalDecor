@@ -58,6 +58,31 @@
 
 
 
+
+
+#demo-simple-select {
+  background-color: transparent !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  height: 30px !important;
+  padding: 0 10px !important;
+  color: white !important;
+  display: flex;
+  align-items: center;
+}
+
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+  border: 1px solid #939393 !important;
+  border-radius: 8px !important;
+}
+
+.css-bpeome-MuiSvgIcon-root-MuiSelect-icon {
+  color: white !important;
+}
+
+
+
+
 @media only screen and (max-width: 320px) {
   .PersonalCabinetInputWrappr {
     display: inline;

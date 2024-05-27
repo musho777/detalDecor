@@ -29,7 +29,6 @@ const PersonalCabinet = () => {
 
   const updateData = useSelector((st) => st.updateData)
 
-  console.log(error, '000000')
 
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
@@ -117,7 +116,6 @@ const PersonalCabinet = () => {
   }
 
   const change = (val, type) => {
-    console.log(val.length, type)
     val = val.replace(/[^0-9]/g, '');
     if (val.length <= 11) {
       let num = `+${val.substring(0, 3)} ${val.substring(3, 5)} ${val.substring(5, 8)} ${val.substring(8, val.length)}`;
@@ -126,7 +124,6 @@ const PersonalCabinet = () => {
       }
       num = num.trim();
       if (type == 'phone') {
-        console.log('phon')
         setPhone(num);
 
       }

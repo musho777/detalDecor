@@ -1,13 +1,41 @@
 .ChartDiv {
-  /* border: 2px solid #BFBFBF; */
   border-radius: 10px;
-  width: 49%;
+  width: 100%;
   background-color: white;
 }
 
 .Statistics {
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
+}
+
+.chartes {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+}
+
+.StatisticsTitle {
+  display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+
+
+/* chartes */
+
+@media only screen and (max-width: 768px) {
+
+  .StatisticsTitle {
+    align-items: end;
+  }
+
+  .StatisticsTitle>div {
+    display: flex;
+    height: 100%;
+  }
 }
