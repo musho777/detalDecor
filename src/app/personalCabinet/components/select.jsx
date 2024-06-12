@@ -52,8 +52,8 @@ export default function Selects({ data, error, onChange, label, multiple = true,
             renderValue={(selected) => selected.join(', ')}
             MenuProps={MenuProps}
           >
-            {data?.map((name) => (
-              <MenuItem onClick={() => onChange(name.id)} key={name.id} value={name.name}>
+            {data?.map((name, i) => (
+              <MenuItem key={i} onClick={() => onChange(name.id)} value={name.name}>
                 <Checkbox checked={personName.indexOf(name.name) > -1} />
                 <ListItemText primary={name.name} />
               </MenuItem>
@@ -67,13 +67,14 @@ export default function Selects({ data, error, onChange, label, multiple = true,
       <label >{label}</label>
       <FormControl fullWidth>
         <Select
+          key={1}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={personName}
           onChange={handleChange}
         >
           {data.map((elm, i) => {
-            return <MenuItem value={elm.id}>{elm.name}</MenuItem>
+            return <MenuItem key={i} value={elm.id}>{elm.name}</MenuItem>
           })}
         </Select>
       </FormControl>

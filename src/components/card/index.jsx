@@ -3,6 +3,7 @@ import Skeleton from 'react-loading-skeleton'
 import { AddBasket } from '../../assets/Svg'
 import AliceCarousel from 'react-alice-carousel'
 import { useEffect, useState } from 'react'
+import 'react-alice-carousel/lib/alice-carousel.css'
 
 
 const Card = ({ fields, loading, data, index }) => {

@@ -6,14 +6,14 @@ export const Bestmanufacturers = () => {
   const [goToSlide, setGoToSlide] = useState(null);
 
   const slides = [
-    { content: <ProductCardWrapper />, key: 1 },
-    { content: <ProductCardWrapper />, key: 2 },
-    { content: <ProductCardWrapper />, key: 3 },
+    { content: <ProductCardWrapper key={1} />, key: 1 },
+    { content: <ProductCardWrapper key={2} />, key: 2 },
+    { content: <ProductCardWrapper key={3} />, key: 3 },
   ]
   const slides1 = [
-    <ProductCardWrapper />,
-    <ProductCardWrapper />,
-    <ProductCardWrapper />,
+    <ProductCardWrapper key={1} />,
+    <ProductCardWrapper key={2} />,
+    <ProductCardWrapper key={3} />,
   ]
   const table = slides.map((element, index) => {
     return { ...element, onClick: () => setGoToSlide(index) };

@@ -7,9 +7,9 @@ import UIButton from '@/UI/button';
 import { AddProductPermission, CreateProductApi, GetCategory, GetCurrency, GetFilds, Logout } from '@/services/action/action';
 import MoonLoader from "react-spinners/ClipLoader";
 import UISelect from '@/UI/select';
-import Fildes from './components/fildes'
+import Fildes from '../../components/createProduct/components/fildes';
 import UIToggleButtonGrug from '../../UI/toggleButtonGrup'
-import AddImage from './components/image'
+import AddImage from '../../components/createProduct/components/image'
 
 const CreateProduct = () => {
   const dispatch = useDispatch()

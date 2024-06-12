@@ -46,8 +46,8 @@ export default function UISelect({ data, error, onChange, label, label1, multipl
           renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
         >
-          {data?.map((name) => (
-            <MenuItem onClick={() => onChange(name.id)} key={name.id} value={name.name}>
+          {data?.map((name, i) => (
+            <MenuItem key={i} onClick={() => onChange(name.id)} value={name.name}>
               <Checkbox checked={personName.indexOf(name.name) > -1} />
               <ListItemText primary={name.name} />
             </MenuItem>

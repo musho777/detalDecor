@@ -22,11 +22,11 @@ const Main = () => {
   return <div>
     <CateogryList data={category.data} loading={category.loading} />
     <Carusel loading={banner.loading} data={banner.data} />
-    <div className='CardWrapperDiv'>
+    <div>
       <p className='Jost400_32'>Популярные товары</p>
       <Bestmanufacturers />
     </div>
-    <div className='CardWrapperDiv'>
+    <div>
       <p className='Jost400_32'>Популярные товары</p>
       <CardWrapper loading={topProduct.loading} data={topProduct.data} />
     </div>

@@ -1,5 +1,6 @@
 import './styles.css'
 import Card from '../card'
+import '../Carusel/styles.css'
 import { useEffect, useState } from 'react'
 const CardWrapper = ({ data, loading }) => {
   const [show, setShow] = useState(false)

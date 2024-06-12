@@ -1,0 +1,10 @@
+#catalogtitle {
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+
+.SelectWrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}

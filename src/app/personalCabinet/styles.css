@@ -14,6 +14,10 @@
   gap: 20px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .navigatorDiv>p {
   cursor: pointer;
   width: auto;
@@ -26,6 +30,7 @@
 }
 
 #actieceNavigation {
+  padding-bottom: 3px;
   width: auto;
   border-bottom: 1.5px solid #FFB800;
   width: fit-content;

@@ -3,7 +3,14 @@ import { SucccessChangePassword, SuccessConfirmCode, SuccessCreateProduct, Succe
 import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetChart, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
 import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetChart, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
-const token = localStorage.getItem('token')
+
+
+
+// if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+//   const token = localStorage.getItem('token')
+// } else {
+//   console.log('localStorage is not available');
+// }
 
 
 
@@ -28,6 +35,7 @@ export const GetCategory = () => {
     })
   }
 }
+
 
 
 export const GetTopProduct = () => {
@@ -126,11 +134,17 @@ export const ConfirmMail = (data) => {
     }
   };
 
+  // const token = localStorage.getItem('token')
+
   return (dispatch) => {
     dispatch(StartConfirmCode())
     axios.post(`${appHostname}/confirm_register`, data, config).then((data) => {
       if (data.data.status) {
-        localStorage.setItem("token", data.data.token)
+        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+          localStorage.setItem("token", data.data.token)
+        } else {
+          console.log('localStorage is not available');
+        }
         dispatch(SuccessConfirmCode())
       }
       else {
@@ -183,7 +197,11 @@ export const LoginAction = (data) => {
     dispatch(StartLogin())
     axios.post(`${appHostname}/login`, data, config).then((data) => {
       if (data.data.status) {
-        localStorage.setItem("token", data.data.token)
+        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+          localStorage.setItem("token", data.data.token)
+        } else {
+          console.log('localStorage is not available');
+        }
         dispatch(GetUserIfno())
         dispatch(SuccessLogin(data.data))
       }
@@ -203,6 +221,12 @@ export const ClearLogin = () => {
 }
 
 export const GetUserIfno = () => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -227,6 +251,12 @@ export const GetUserIfno = () => {
 }
 
 export const AddProductPermission = () => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -251,6 +281,12 @@ export const AddProductPermission = () => {
 }
 
 export const Logout = () => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -273,6 +309,12 @@ export const Logout = () => {
 }
 
 export const GetFilds = (id) => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -297,6 +339,12 @@ export const GetFilds = (id) => {
 
 
 export const GetCurrency = () => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -330,6 +378,12 @@ export const CloseStatus = (msg) => {
 
 
 export const CreateProductApi = (data) => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -357,6 +411,12 @@ export const CreateProductApi = (data) => {
 }
 
 export const UpdateUserInfo = (data) => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -384,6 +444,12 @@ export const UpdateUserInfo = (data) => {
 
 
 export const ChangePassword = (data) => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -410,6 +476,12 @@ export const ChangePassword = (data) => {
 }
 
 export const GetcharterData = (periud) => {
+  let token = ''
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+    token = localStorage.getItem('token')
+  } else {
+    console.log('localStorage is not available');
+  }
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',

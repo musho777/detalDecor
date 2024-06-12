@@ -1,20 +1,20 @@
 import { combineReducers } from 'redux';
-import GetCategoryReducer from './getCategoryReducer';
-import GetTopProductReducer from './getTopProductReducer'
-import GetBannerReducer from './getBannerReducer'
-import GetCountryReducer from './getCountryReducer'
-import RegistrReducer from './RegistrReducer'
-import ConfirmCodeReducer from './ConfirmCodeReducer'
-import LoginReducer from './LoginReducer'
-import UserReducer from './userReducer'
-import CreateProductPermission from './CreateProductPermission'
-import GetFildReducer from './getFildReducer'
-import GetCurencyReducer from './getCurencyReducer'
-import StatusReducer from './statusReducer'
-import createProductReducer from './createProductReducer'
-import UpdateDataReducer from './UpdateDataReducer'
-import ChangePasswordReducer from './ChangePasswordReducer'
-import GetChartReducer from './GetChartReducer'
+import GetCategoryReducer from '@/services/reducers/getCategoryReducer';
+import GetTopProductReducer from '@/services/reducers/getTopProductReducer'
+import GetBannerReducer from '@/services/reducers/getBannerReducer'
+import GetCountryReducer from '@/services/reducers/getCountryReducer'
+import RegistrReducer from '@/services/reducers/registrReducer.js'
+import ConfirmCodeReducer from '@/services/reducers/ConfirmCodeReducer'
+import LoginReducer from '@/services/reducers/LoginReducer'
+import UserReducer from '@/services/reducers/userReducer'
+import CreateProductPermission from '@/services/reducers/CreateProductPermission'
+import GetFildReducer from '@/services/reducers/getFildReducer'
+import GetCurencyReducer from '@/services/reducers/getCurencyReducer'
+import StatusReducer from '@/services/reducers/statusReducer'
+import createProductReducer from '@/services/reducers/createProductReducer'
+import UpdateDataReducer from '@/services/reducers/UpdateDataReducer'
+import ChangePasswordReducer from '@/services/reducers/changePasswordReducer'
+import GetChartReducer from '@/services/reducers/GetChartReducer'
 
 const rootReducer = combineReducers({
   category: GetCategoryReducer,
