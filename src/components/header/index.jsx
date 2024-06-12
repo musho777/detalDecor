@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import Login from "../Login/index.jsx"
+import Login from "../Login"
 import Registr from '../Registr/index.jsx'
 import MailVereficastion from '../MailVerefication'
 
