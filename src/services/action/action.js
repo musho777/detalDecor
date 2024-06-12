@@ -511,3 +511,20 @@ export const StatusAction = (type, msg) => {
     msg
   }
 }
+
+
+export const GetCAtegory = () => {
+  return (dispatch) => {
+    // dispatch(StartGetChart())
+    axios.get(`${appHostname}/get_category`, config).then((data) => {
+      if (data.data.status) {
+        // dispatch(SuccessGetChart(data.data))
+      }
+      else {
+        // dispatch(ErrorGetChart())
+      }
+    }).catch((error) => {
+      // dispatch(ErrorGetChart(error))
+    })
+  }
+}

@@ -97,6 +97,12 @@ input:focus {
   color: white;
 }
 
+.Jost400_14 {
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
 .Jost400_32 {
   font-size: 32px;
   font-weight: 400;
@@ -201,6 +207,10 @@ input:focus {
     font-size: 12px;
   }
 
+  .Jost400_14 {
+    font-size: 14px;
+  }
+
   .Jost500_14 {
     font-size: 12px;
   }
@@ -259,6 +269,10 @@ input:focus {
 
   .Jost400 {
     font-size: 10px;
+  }
+
+  .Jost400_14 {
+    font-size: 12px;
   }
 
   .Jost400_16 {
