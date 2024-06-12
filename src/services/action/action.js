@@ -4,16 +4,6 @@ import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBann
 import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetChart, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 
-
-
-// if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-//   const token = localStorage.getItem('token')
-// } else {
-//   console.log('localStorage is not available');
-// }
-
-
-
 export const GetCategory = () => {
   const headers = {
     'Content-Type': 'application/json',
@@ -133,9 +123,6 @@ export const ConfirmMail = (data) => {
       'Accept-Language': 'am'
     }
   };
-
-  // const token = localStorage.getItem('token')
-
   return (dispatch) => {
     dispatch(StartConfirmCode())
     axios.post(`${appHostname}/confirm_register`, data, config).then((data) => {
@@ -515,16 +502,12 @@ export const StatusAction = (type, msg) => {
 
 export const GetCAtegory = () => {
   return (dispatch) => {
-    // dispatch(StartGetChart())
     axios.get(`${appHostname}/get_category`, config).then((data) => {
       if (data.data.status) {
-        // dispatch(SuccessGetChart(data.data))
       }
       else {
-        // dispatch(ErrorGetChart())
       }
     }).catch((error) => {
-      // dispatch(ErrorGetChart(error))
     })
   }
 }
