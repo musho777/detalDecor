@@ -15,6 +15,7 @@ import createProductReducer from '@/services/reducers/createProductReducer'
 import UpdateDataReducer from '@/services/reducers/UpdateDataReducer'
 import ChangePasswordReducer from '@/services/reducers/changePasswordReducer'
 import GetChartReducer from '@/services/reducers/GetChartReducer'
+import GetProductReducer from '@/services/reducers/GetProductReducer'
 
 const rootReducer = combineReducers({
   category: GetCategoryReducer,
@@ -32,7 +33,8 @@ const rootReducer = combineReducers({
   createProduct: createProductReducer,
   updateData: UpdateDataReducer,
   chagenPassword: ChangePasswordReducer,
-  getChart: GetChartReducer
+  getChart: GetChartReducer,
+  products: GetProductReducer
 });
 
 export default rootReducer;

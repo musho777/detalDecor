@@ -100,4 +100,11 @@ export const ErrorGetChart = (error) => {
     type: 'ErrorGetChart',
     error
   }
-} 
+}
+
+export const ErrorGetProcut = (error) => {
+  return {
+    type: 'ErrorGetProcut',
+    error
+  }
+}

@@ -1,18 +1,19 @@
-import Image from 'next/image'
+"use client"
 import './styles.css'
-import { KithcenSvg } from '@/assets/Svg'
-import { useEffect, useRef, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import TruncateText from '../../functions/truncateText'
+import { useRouter } from 'next/navigation'
 
-const CategoryItem = ({ title, loading, img }) => {
+
+const CategoryItem = ({ title, loading, img, url }) => {
+  const router = useRouter()
   if (loading) {
     return <div className='CategoriItemLoading'>
       <Skeleton baseColor="#282929" highlightColor="#3a3c3d" />
     </div>
   }
-  return <div className='CategoriItem'>
+  return <div onClick={() => router.push(`/catalog/${url}`)} className='CategoriItem'>
     <div className='CategoriItemImgWrapper'>
       <img
         onDragStart={(e) => e.preventDefault()}

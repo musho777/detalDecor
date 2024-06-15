@@ -1,7 +1,7 @@
 import axios from "axios"
-import { SucccessChangePassword, SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetChart, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
-import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetChart, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
-import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetChart, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
+import { SucccessChangePassword, SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetChart, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetProduct, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
+import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetChart, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetProcut, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
+import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetChart, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetProduct, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 
 export const GetCategory = () => {
@@ -500,14 +500,39 @@ export const StatusAction = (type, msg) => {
 }
 
 
-export const GetCAtegory = () => {
+export const GetProduct = (data) => {
+  console.log(data, 'data,')
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': 'am',
+    }
+  };
   return (dispatch) => {
-    axios.get(`${appHostname}/get_category`, config).then((data) => {
-      if (data.data.status) {
+
+    let url = `${appHostname}/get_products?parent_category_url=${data.url}&currency_name=${data.currency}`;
+
+    if (data.start) {
+      url += `&start_price=${data.start}`;
+    }
+    if (data.end) {
+      url += `&end_price=${data.end}`;
+    }
+    if (data.category_url) {
+      url += `&category_url=${data.category_url}`;
+    }
+    console.log(url)
+    dispatch(StartGetProduct())
+    axios.get(url, config).then((data) => {
+      if (data.status) {
+        console.log(data, 'data')
+        dispatch(SuccessGetProduct(data.data.data))
       }
       else {
+        dispatch(ErrorGetProcut())
       }
     }).catch((error) => {
+      dispatch(ErrorGetProcut(error))
     })
   }
 }

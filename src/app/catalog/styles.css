@@ -8,3 +8,22 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.CatalogInput {
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+  width: 100px;
+  background-color: #393939;
+  color: white;
+}
+
+#CatalogButton {
+  border: none;
+  border-radius: 20px;
+  padding: 5px;
+  width: 100px;
+  background-color: #FFB800;
+  color: white;
+  cursor: pointer;
+}

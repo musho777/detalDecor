@@ -1,5 +1,4 @@
 "use client"
-
 import { useEffect, useState } from 'react';
 import CategoryItem from '../categoriItem';
 import './styles.css';
@@ -31,7 +30,7 @@ const CateogryList = ({ data, loading }) => {
       temp = []
       data.map((elm, index) => {
         temp.push(
-          <CategoryItem img={elm.icon} key={index} title={`${elm.name}`} />
+          <CategoryItem url={elm.url} img={elm.icon} key={index} title={`${elm.name}`} />
         )
       })
       setItem(temp)

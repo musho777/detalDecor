@@ -86,3 +86,9 @@ export const StartGetChart = () => {
     type: 'StartGetChart'
   }
 }
+
+export const StartGetProduct = () => {
+  return {
+    type: "StartGetProduct",
+  }
+}

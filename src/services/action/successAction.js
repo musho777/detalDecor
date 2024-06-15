@@ -102,3 +102,10 @@ export const SuccessGetChart = (data) => {
     data
   }
 }
+
+export const SuccessGetProduct = (data) => {
+  return {
+    type: 'SuccessGetProduct',
+    data
+  }
+}
