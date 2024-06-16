@@ -170,7 +170,9 @@ input:focus {
   opacity: 1;
 }
 
-
+.BestmanufacturersDiv {
+  margin: 30px 0;
+}
 
 
 @media only screen and (max-width: 1440px) {
@@ -218,6 +220,12 @@ input:focus {
   .Jost400_16 {
     font-size: 14px;
   }
+
+  .Jost500_18 {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+  }
 }
 
 @media only screen and (max-width: 1160px) {
@@ -261,6 +269,12 @@ input:focus {
 
   .Jost500 {
     font-size: 13px;
+  }
+
+  .Jost500_18 {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
   }
 
   .Jost400_20 {

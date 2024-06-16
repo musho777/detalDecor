@@ -1,0 +1,102 @@
+.myproductComponent {
+  width: 100%;
+  border: 1px solid #BFBFBF;
+  border-radius: 24px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.MyProduct {
+  width: 100%;
+}
+
+.prodictTitle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.prodictTitle>div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prodictInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.prodictInfo2 {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+
+.productImage {
+  width: 195px;
+  height: 217px;
+  background-color: #EFEFEF;
+  border-radius: 20px;
+}
+
+.Product {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.myProductEdit {
+  display: flex;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.myproductEditMobal {
+  display: none;
+}
+
+@media only screen and (max-width: 674px) {
+  .myProductEdit {
+    display: none;
+  }
+
+  .prodictTitle>div {
+    display: none;
+  }
+
+  .myproductEditMobal {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .myproductComponent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .myproductEditMobal>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+}
+
+@media only screen and (max-width: 505px) {
+  .Product {
+    width: 100%;
+  }
+
+  .productImage {
+    width: 100%;
+  }
+}

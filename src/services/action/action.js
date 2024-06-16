@@ -1,18 +1,24 @@
 import axios from "axios"
-import { SucccessChangePassword, SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetChart, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetProduct, SuccessGetTopProducts, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
-import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetChart, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetProcut, ErrorGetTopProcut, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
-import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetChart, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetProduct, StartGetTopProduct, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
+import { SucccessChangePassword, SuccessConfirmCode, SuccessCreateProduct, SuccessGetBanner, SuccessGetCategory, SuccessGetChart, SuccessGetCountry, SuccessGetCurency, SuccessGetFild, SuccessGetPermition, SuccessGetProduct, SuccessGetTopProducts, SuccessGetTopUser, SuccessGetUser, SuccessLogin, SuccessRegistr, SuccessUpdateData } from './successAction'
+import { ErrorChangePassword, ErrorConfirmCode, ErrorCreateProduct, ErrorGetBanner, ErrorGetCategory, ErrorGetChart, ErrorGetCountry, ErrorGetCurency, ErrorGetFild, ErrorGetPermition, ErrorGetProcut, ErrorGetTopProcut, ErrorGetTopUser, ErrorGetUser, ErrorLogin, ErrorRegistr, ErrorUpdateData } from './errorAction'
+import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBanner, StartGetCategory, StartGetChart, StartGetCountry, StartGetCurrency, StartGetFild, StartGetPermition, StartGetProduct, StartGetTopProduct, StartGetTopUser, StartGetuser, StartLogin, StartRegistr, StartUpdateData } from './startAction'
 const appHostname = "https://detaldecor.digiluys.com/api"
 
-export const GetCategory = () => {
+export const GetCategory = (parent_category_url) => {
+  console.log(parent_category_url, 'parent_category_url')
   const headers = {
     'Content-Type': 'application/json',
     'Accept-Language': 'ru'
   };
+  let url = 'get_category'
+
+  if (parent_category_url) {
+    url += `?parent_category_url=${parent_category_url}`
+  }
 
   return (dispatch) => {
     dispatch(StartGetCategory())
-    axios.get(`${appHostname}/get_category`, { headers }).then((data) => {
+    axios.get(`${appHostname}/${url}`, { headers }).then((data) => {
       if (data.data.status) {
         dispatch(SuccessGetCategory(data.data.data))
       }
@@ -46,6 +52,27 @@ export const GetTopProduct = () => {
 
     }).catch((error) => {
       dispatch(ErrorGetTopProcut("server errror"))
+    })
+  }
+}
+export const GetTopUser = () => {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Accept-Language': 'ru'
+  };
+
+  return (dispatch) => {
+    dispatch(StartGetTopUser())
+    axios.get(`${appHostname}/get_top_user`, { headers }).then((data) => {
+      if (data.data.status) {
+        dispatch(SuccessGetTopUser(data.data.data))
+      }
+      else {
+        dispatch(ErrorGetTopUser("server errror"))
+      }
+
+    }).catch((error) => {
+      dispatch(ErrorGetTopUser("server errror"))
     })
   }
 }
@@ -501,7 +528,6 @@ export const StatusAction = (type, msg) => {
 
 
 export const GetProduct = (data) => {
-  console.log(data, 'data,')
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -510,7 +536,7 @@ export const GetProduct = (data) => {
   };
   return (dispatch) => {
 
-    let url = `${appHostname}/get_products?parent_category_url=${data.url}&currency_name=${data.currency}`;
+    let url = `${appHostname}/get_products?parent_category_url=${data.url}`;
 
     if (data.start) {
       url += `&start_price=${data.start}`;
@@ -518,14 +544,16 @@ export const GetProduct = (data) => {
     if (data.end) {
       url += `&end_price=${data.end}`;
     }
-    if (data.category_url) {
-      url += `&category_url=${data.category_url}`;
+    if (data.category) {
+      url += `&category_url=${data.category}`;
+    }
+    if (data.currency) {
+      url += `&currency_name=${data.currency}`
     }
     console.log(url)
     dispatch(StartGetProduct())
     axios.get(url, config).then((data) => {
       if (data.status) {
-        console.log(data, 'data')
         dispatch(SuccessGetProduct(data.data.data))
       }
       else {

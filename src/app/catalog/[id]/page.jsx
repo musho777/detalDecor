@@ -1,9 +1,9 @@
 "use client"
+import '../styles.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { GetCurrency, GetProduct, GetTopProduct } from '../../../services/action/action'
+import { GetCategory, GetCurrency, GetProduct } from '../../../services/action/action'
 import { Select } from '../../../components/select'
-import '../styles.css'
 import CardWrapper from '../../../components/CardWrapper'
 import { useRouter } from 'next/navigation'
 
@@ -11,10 +11,13 @@ const Catalog = (context) => {
   const [startValue, setStartValue] = useState("")
   const [endValue, setEndValue] = useState("")
   const [selectedCurency, setSelectedCurency] = useState("AMD")
+  const [sub, setSub] = useState()
   const router = useRouter();
   const products = useSelector((st) => st.products)
   const curency = useSelector((st) => st.curency)
+  const category = useSelector((st) => st.category)
   const dispatch = useDispatch()
+
   useEffect(() => {
     if (context.searchParams.end) {
       setEndValue(context.searchParams.end)
@@ -25,11 +28,15 @@ const Catalog = (context) => {
     if (context.searchParams.curency) {
       setSelectedCurency(context.searchParams.curency)
     }
+    if (context.searchParams.category) {
+      setSub(context.searchParams.category)
+    }
     dispatch(GetProduct({
       url: context.params?.id,
-      currency: selectedCurency,
+      currency: context.searchParams.curency,
       start: context.searchParams.start,
-      end: context.searchParams.end
+      end: context.searchParams.end,
+      category: context.searchParams.category
     }))
   }, [context])
 
@@ -37,10 +44,12 @@ const Catalog = (context) => {
     dispatch(GetCurrency())
   }, [])
 
+  useEffect(() => {
+    dispatch(GetCategory(context.params?.id))
+  }, [context.params])
+
 
   const handleUpdateURL = () => {
-    console.log('111')
-    console.log(selectedCurency, 'selectedCurency')
     let uri = `/catalog/kuxni?`
     if (startValue) {
       uri += `&start=${startValue}`
@@ -51,20 +60,61 @@ const Catalog = (context) => {
     if (curency) {
       uri += `&curency=${selectedCurency}`
     }
+    if (sub) {
+      uri += `&category=${sub}`
+    }
     router.push(uri);
   };
-
+  console.log(!products.loading && products.data?.data?.length < 0, '22')
+  console.log(!products.loading, products.data?.data?.length == 0, '22')
 
   return <div>
-    <p id="catalogtitle" style={{ color: "#FFB800" }} className="jeJost600_24">Добавить товар в каталог</p>
+    <p id="catalogtitle" className="Jost600_24">Добавить товар в каталог</p>
     <div className='SelectWrapper'>
-      <Select />
-      <Select onSelect={(e) => setSelectedCurency(e.name)} defaultSelect={curency.data[0]} data={curency.data} />
-      <input value={startValue} onChange={(e) => setStartValue(e.target.value)} placeholder='start' className='CatalogInput' />
-      <input value={endValue} onChange={(e) => setEndValue(e.target.value)} placeholder='end' className='CatalogInput' />
-      <button onClick={() => handleUpdateURL()} className='Jost500' id='CatalogButton'>filtr</button>
+      <Select
+        loading={category.loading}
+        onSelect={(e) => setSub(e.url)}
+        width={200}
+        defaultSelect={category.data.find((elm) => elm.url == sub)}
+        data={category.data}
+        defaultValue="Sub category"
+      />
+      <Select
+        onSelect={(e) => setSelectedCurency(e.name)}
+        defaultSelect={curency.data.find((elm) => elm.name == selectedCurency)}
+        data={curency.data}
+        width={70}
+        loading={curency.loading}
+      />
+      <input
+        value={startValue}
+        onChange={(e) => setStartValue(e.target.value)}
+        placeholder='start'
+        className='CatalogInput'
+      />
+      <input
+        value={endValue}
+        onChange={(e) => setEndValue(e.target.value)}
+        placeholder='end'
+        className='CatalogInput'
+      />
+      <button
+        disabled={products.loading}
+        onClick={() => handleUpdateURL()}
+        className='Jost500'
+        id='CatalogButton'>
+        filtr
+      </button>
     </div>
-    <CardWrapper loading={products.loading} data={products.data?.data} />
+    {(!products.loading && products.data?.data?.length == 0) ?
+      <p className='Jost500' id='nothingNotFound'>
+        vochinch chka
+      </p> :
+      <CardWrapper
+        loading={products.loading}
+        data={products.data?.data}
+      />
+    }
   </div>
 }
 

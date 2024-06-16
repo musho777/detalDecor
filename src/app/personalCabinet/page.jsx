@@ -177,7 +177,7 @@ const PersonalCabinet = () => {
         <div className="PersonalCabinetInputWrappr">
           <div>
             <Input error={error.company} onChange={(e) => setCompaniName(e)} value={companiName} label={"company name"} />
-            <Input onChange={(e) => change(e, 'Whatsapp')} value={whatsapp} label={"Whatsapp"} />
+            <Input onChange={(e) => change(e, 'Whatsapp')} value={whatsapp ? whatsapp : ''} label={"Whatsapp"} />
           </div>
           <div>
             <Input error={error.phone} label={"phone number"} onChange={(e) => change(e, 'phone')} value={phone} />

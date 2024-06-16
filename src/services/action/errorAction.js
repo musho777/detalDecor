@@ -108,3 +108,10 @@ export const ErrorGetProcut = (error) => {
     error
   }
 }
+
+export const ErrorGetTopUser = (error) => {
+  return {
+    type: "ErrorGetTopUser",
+    error
+  }
+}

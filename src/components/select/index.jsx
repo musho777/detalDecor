@@ -2,7 +2,17 @@ import { DownSvg2 } from '@/assets/Svg'
 import './styles.css'
 import TruncateText from '@/functions/truncateText'
 import { useEffect, useRef, useState } from 'react'
-export const Select = ({ svg, data, selectType = "singl", defaultValue, defaultSelect, onSelect }) => {
+import Skeleton from 'react-loading-skeleton'
+export const Select = ({
+  svg,
+  data,
+  selectType = "singl",
+  defaultValue,
+  defaultSelect,
+  onSelect,
+  width,
+  loading
+}) => {
 
   const ref = useRef()
   const [open, setOpen] = useState(false)
@@ -38,12 +48,16 @@ export const Select = ({ svg, data, selectType = "singl", defaultValue, defaultS
 
 
 
-  return <div ref={ref} onClick={() => setOpen(true)} className='Select'>
-    <div className='SelectHeader'>
-      {svg}
-      {select ?
-        <p className='Jost400'>{TruncateText(select?.name, 15)}</p> :
-        <p className='Jost400'>{TruncateText(defaultValue, 15)}</p>}
+  return <div style={{ width: width }} ref={ref} onClick={() => setOpen(true)} className='Select'>
+    <div style={{ width: width }} className='SelectHeader'>
+      {!loading ? <div>
+        {svg}
+        {select ?
+          <p className='Jost400'>{TruncateText(select?.name, 15)}</p> :
+          <p className='Jost400'>{TruncateText(defaultValue, 15)}</p>}
+      </div> :
+        <Skeleton width={width - 50} baseColor="#282929" highlightColor="#3a3c3d" />
+      }
       <DownSvg2 />
     </div>
     {open &&

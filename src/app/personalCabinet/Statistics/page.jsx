@@ -12,7 +12,6 @@ const Statistics = () => {
   const [periud, setPeriud] = useState(7)
   const getChart = useSelector((st) => st.getChart)
   const [first, setFirst] = useState(true)
-  console.log(getChart, 'getChart')
 
   useEffect(() => {
     dispatch(GetcharterData(periud))

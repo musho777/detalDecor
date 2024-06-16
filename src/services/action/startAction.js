@@ -92,3 +92,9 @@ export const StartGetProduct = () => {
     type: "StartGetProduct",
   }
 }
+
+export const StartGetTopUser = () => {
+  return {
+    type: 'StartGetTopUser'
+  }
+}

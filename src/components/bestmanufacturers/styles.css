@@ -102,6 +102,10 @@
     width: 100% !important;
   }
 
+  .alice-carousel__dots {
+    margin: 10px 3px 10px !important;
+  }
+
   .Bestmanufacturers1 {
     margin-top: 20px;
     display: block;

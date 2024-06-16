@@ -109,3 +109,10 @@ export const SuccessGetProduct = (data) => {
     data
   }
 }
+
+export const SuccessGetTopUser = (data) => {
+  return {
+    type: "SuccessGetTopUser",
+    data
+  }
+}

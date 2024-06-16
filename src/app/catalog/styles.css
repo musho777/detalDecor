@@ -1,6 +1,7 @@
 #catalogtitle {
   margin-top: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  color: #FFB800;
 }
 
 .SelectWrapper {
@@ -16,6 +17,7 @@
   width: 100px;
   background-color: #393939;
   color: white;
+  border: 1px solid;
 }
 
 #CatalogButton {
@@ -26,4 +28,20 @@
   background-color: #FFB800;
   color: white;
   cursor: pointer;
+}
+
+#nothingNotFound {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 500px) {
+  .SelectWrapper {
+    justify-content: space-between;
+  }
+
+  .CatalogInput {
+    height: 25px;
+  }
 }
