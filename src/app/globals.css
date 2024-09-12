@@ -70,7 +70,12 @@ input:focus {
   font-size: 16px;
   font-weight: 600;
   color: white;
+}
 
+.Jost600_20 {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
 }
 
 .Jost600_28 {
@@ -143,6 +148,13 @@ input:focus {
 
 }
 
+.Jost700_28 {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+
+}
+
 .Jost400_20 {
   font-size: 20px;
   font-weight: 400;
@@ -199,8 +211,16 @@ input:focus {
     font-size: 18px;
   }
 
+  .Jost600_20 {
+    font-size: 18px;
+  }
+
 
   .Jost600_28 {
+    font-size: 25px;
+  }
+
+  .Jost700_28 {
     font-size: 25px;
   }
 
@@ -278,6 +298,10 @@ input:focus {
     font-size: 22px;
   }
 
+  .Jost700_28 {
+    font-size: 22px;
+  }
+
   .Jost600_24 {
     font-size: 19px;
   }
@@ -285,6 +309,7 @@ input:focus {
   .Jost600 {
     font-size: 13px;
   }
+
 
   .Jost300_24 {
     font-size: 13px;
@@ -301,6 +326,10 @@ input:focus {
   }
 
   .Jost400_20 {
+    font-size: 16px;
+  }
+
+  .Jost600_20 {
     font-size: 16px;
   }
 

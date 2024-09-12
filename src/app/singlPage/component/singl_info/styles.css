@@ -1,0 +1,69 @@
+.singlPageDataWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.SinglCategory {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.SingliconeWrapeerDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.SinglCategoryItem {
+  background-color: #282929;
+  padding: 5px 13px;
+  border-radius: 12px;
+  color: white !important;
+}
+
+
+.singlPageDataDivDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.singlPageTitle {
+  width: 120px !important;
+}
+
+.singlPageDataDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.singlPageData>p {
+  width: 120px;
+  color: white !important;
+}
+
+.singlPageData {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+
+.singlTitle {
+  width: 330px;
+}
+
+.SingliconeWrapeer {
+  display: flex;
+  gap: 30px;
+}
+
+.SingliconeWrapeer>div {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}

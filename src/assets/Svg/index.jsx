@@ -155,7 +155,12 @@ export const StarSvg = () => {
   return <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2.5L15.09 8.76L22 9.77L17 14.64L18.18 21.52L12 18.27L5.82 21.52L7 14.64L2 9.77L8.91 8.76L12 2.5Z" fill="#FFB800" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
+}
 
+export const StarSvg2 = () => {
+  return <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10.0013 1.66666L12.5763 6.88333L18.3346 7.725L14.168 11.7833L15.1513 17.5167L10.0013 14.8083L4.8513 17.5167L5.83464 11.7833L1.66797 7.725L7.4263 6.88333L10.0013 1.66666Z" fill="#FFB800" />
+  </svg>
 }
 
 export const EyeSvg = () => {

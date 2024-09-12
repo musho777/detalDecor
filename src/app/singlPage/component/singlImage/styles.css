@@ -1,0 +1,74 @@
+.SinglimageWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.eachImageWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+  gap: 10px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.eachImage {
+  width: 120px;
+  min-height: 126px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.singlImage {
+  width: 420px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media only screen and (max-width: 1160px) {
+  .singlPageDataInfo {
+    flex-direction: column;
+  }
+
+  .SinglImageDivWrapper {
+    flex-direction: column;
+  }
+
+  .singlImageDiv {
+    width: calc(100% - 120px);
+    height: 350px;
+  }
+
+  .singlImage {
+    width: 100%;
+    height: 100%;
+  }
+
+  .eachImageWrapper {
+    height: 350px;
+  }
+}
+
+
+@media only screen and (max-width: 425px) {
+  .SinglimageWrapper {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .singlImageDiv {
+    width: 100%;
+  }
+
+
+  .eachImageWrapper {
+    flex-direction: row;
+    height: auto;
+  }
+
+  .eachImage {
+    width: 70px;
+    height: 65px;
+  }
+}
