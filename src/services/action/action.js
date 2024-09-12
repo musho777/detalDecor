@@ -5,7 +5,6 @@ import { StartChangePassword, StartConfirmCode, StartCreateProduct, StartGetBann
 const appHostname = "https://detaldecor.digiluys.com/api"
 
 export const GetCategory = (parent_category_url) => {
-  console.log(parent_category_url, 'parent_category_url')
   const headers = {
     'Content-Type': 'application/json',
     'Accept-Language': 'ru'

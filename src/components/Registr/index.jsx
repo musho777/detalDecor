@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import Auth from '../Auth/index'
 import { useEffect, useRef, useState } from 'react'
-import { ClearRegistrSgtatus, GetCountry, Logout, Register } from '@/services/action/action'
+import { ClearRegistrSgtatus, GetCountry, Register } from '@/services/action/action'
 import Swicher from '../swicher'
 import UIButton from '@/UI/button'
 import UIInput from '@/UI/input'

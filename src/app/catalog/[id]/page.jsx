@@ -65,9 +65,6 @@ const Catalog = (context) => {
     }
     router.push(uri);
   };
-  console.log(!products.loading && products.data?.data?.length < 0, '22')
-  console.log(!products.loading, products.data?.data?.length == 0, '22')
-
   return <div>
     <p id="catalogtitle" className="Jost600_24">Добавить товар в каталог</p>
     <div className='SelectWrapper'>

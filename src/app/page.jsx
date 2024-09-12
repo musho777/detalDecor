@@ -12,7 +12,6 @@ const Main = () => {
   const topProduct = useSelector((st) => st.topProduct)
   const banner = useSelector((st) => st.banner)
   const getTopUser = useSelector((st) => st.getTopUser)
-  console.log(getTopUser, 'getTopUser')
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(GetCategory())
