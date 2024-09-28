@@ -54,7 +54,7 @@
 
 
 .singlTitle {
-  width: 330px;
+  max-width: 330px;
 }
 
 .SingliconeWrapeer {
@@ -66,4 +66,24 @@
   gap: 10px;
   display: flex;
   align-items: center;
+}
+
+.singlInfomore {
+  text-align: start;
+  margin: 0;
+}
+
+@media only screen and (max-width: 520px) {
+  .SingliconeWrapeerDiv {
+    margin: 30px 0;
+  }
+
+  .singlPageDataDivDiv {
+    gap: 10px;
+  }
+
+  .singlInfomore {
+    text-align: center;
+    margin: 20px 0;
+  }
 }

@@ -45,7 +45,7 @@ export const SinglInfo = () => {
           <p className='Jost400_13'>Россиия</p>
         </div>
       </div>
-      <p className='Jost400_13' style={{ color: '#BFBFBF' }}>Все характеристики и описание</p>
+      <p className='Jost400_13 singlInfomore' style={{ color: '#BFBFBF' }}>Все характеристики и описание</p>
     </div>
   </div>
 }

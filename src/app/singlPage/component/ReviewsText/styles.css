@@ -1,0 +1,41 @@
+.ReviewsTextItem {
+  width: 400px;
+  background-color: #1B1F1F;
+  padding: 20px;
+  border-radius: 24px;
+}
+
+.ReviewsTextItemUser {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.ReviewsTextItemRate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ReviewsTextItemUserName {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ReviewsTextItemUser>img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+@media only screen and (max-width: 520px) {
+  .ReviewsTextItem {
+    width: 100%;
+    padding: 15px 10px;
+  }
+
+  .ReviewsText {
+    min-width: 100%;
+  }
+
+}

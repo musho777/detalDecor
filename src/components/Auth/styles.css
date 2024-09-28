@@ -91,6 +91,7 @@
 @media only screen and (max-width: 490px) {
   .LoginWrapper {
     flex-direction: column;
+    gap: 20px;
   }
 
   .InfoWrapper {
